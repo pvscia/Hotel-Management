@@ -1,23 +1,15 @@
 package facilities;
 
 public class Inventory {
-	private String id,name;
-	private int stock,price;
+	private String name;
+	private int stock;
 	
-	public Inventory(String id, String name, int stock, int price) {
+	public Inventory(String name, int stock) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.stock = stock;
-		this.price = price;
 	}
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
 	}
@@ -29,12 +21,6 @@ public class Inventory {
 	}
 	public void setStock(int stock) {
 		this.stock = stock;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
 	}
 	
 	

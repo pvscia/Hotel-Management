@@ -1,5 +1,9 @@
 package view;
 
+import java.sql.ResultSet;
+
+import database.Connections;
+import database.Functions;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,6 +17,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class RegisterScene {
 	public static Scene registerScene;
@@ -40,7 +45,18 @@ public class RegisterScene {
 	Button btnRegister_login = new Button("Login");
 	Button btnRegister_register = new Button("Register");
 	
-	public RegisterScene() {
+	public void clearFields() {
+		tfRegisterName.clear();
+		tfRegisterUsername.clear();
+		tfRegisterEmail.clear();
+		pfRegisterConfirmPassword.clear();
+		pfRegisterPassword.clear();
+		rbRegisterFemale.setSelected(false);
+		rbRegisterMale.setSelected(false);
+		cbRegister.setSelected(false);
+	}
+	
+	public RegisterScene(Stage stg) {
 		hbRegisterTerms.getChildren().addAll(cbRegister,lRegisterTerms);
 		hbRegisterBtns.getChildren().addAll(btnRegister_login,btnRegister_register);
 		hbRegisterGender.getChildren().addAll(rbRegisterMale,rbRegisterFemale);
@@ -71,5 +87,107 @@ public class RegisterScene {
 		bpRegister.setCenter(vbRegister);
 		bpRegister.setPadding(new Insets(30));
 		registerScene = new Scene(bpRegister,600,475);
+		
+		
+		//REGISTER SCENE => LOGIN SCENE
+		 btnRegister_login.setOnAction(e->{
+			 clearFields();
+			 stg.setScene(LoginScene.loginScene);
+			 stg.setTitle("Login");
+			 
+		 });
+		 
+		 btnRegister_register.setOnAction(e->{
+			 String alert=null;
+			 ResultSet rs;
+			 if(Functions.validateName(tfRegisterName.getText())) {
+				 if(Functions.validateUsername(tfRegisterUsername.getText())) {
+					 if(Functions.validatePassword(pfRegisterPassword.getText())) {
+						 if(Functions.validateConfPass(pfRegisterConfirmPassword.getText(), pfRegisterPassword.getText())) {
+							 if(Functions.validateEmail(tfRegisterEmail.getText())) {
+								 if(cbRegister.isSelected()) {
+									 if(rbRegisterFemale.isSelected()||rbRegisterMale.isSelected()) {
+										 alert =null;
+										 }else {
+											 alert ="You must select a gender!";
+										 }
+									 }else {
+										alert ="You must agree with terms and condition if you want to continue";
+									 }
+								 }else {
+									 alert="Email must contain 1 @, unique, and ends with @gmail.com!";
+								 }
+							 }else {
+								 alert = "Password doesn't match!";
+								 }
+						 }else {
+							 alert = "Password must contain at least 8 characters and alphanumeric!";
+							 }
+					 }else {
+						 alert = "Username must be 3 - 10 characters!";
+						 }
+				 }else {
+					 alert ="Name must be 5 - 20 characters!";
+					 }
+			 
+			 
+			 try {
+				
+				Connections.openCon();
+				String query = "SELECT * FROM user WHERE email =?";
+				Connections.state = Connections.connect.prepareStatement(query);
+				Connections.state.setString(1,tfRegisterEmail.getText());
+				rs = Connections.state.executeQuery();
+				if(rs.next()) {
+					alert = "Email must be unique";
+				}
+				Connections.closeCon();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+			 
+			 if(alert!=null) {
+				Functions.alertUser(alert);
+			 }else {
+				 String id;
+				 try {
+					 Connections.openCon();
+					while(true) {
+						id = Functions.generateID("user");
+						String query = "SELECT * FROM user WHERE id =?";
+						Connections.state = Connections.connect.prepareStatement(query);
+						Connections.state.setString(1,id);
+						rs=Connections.state.executeQuery();
+						if(rs.next()) {
+							continue;
+						}else {
+							break;
+						}
+					}
+					
+					String query = "INSERT INTO user(id, name, gender, username, email,password, role) VALUES (?,?,?,?,?,?,?)";
+					Connections.state = Connections.connect.prepareStatement(query);
+					Connections.state.setString(1,id);
+					Connections.state.setString(2,tfRegisterName.getText());
+					String gender = null;
+					if(rbRegisterFemale.isSelected()) {
+						gender = rbRegisterFemale.getText();
+					}else if(rbRegisterMale.isSelected()) {
+						gender = rbRegisterMale.getText();
+					}
+					Connections.state.setString(3,gender);
+					Connections.state.setString(4,tfRegisterUsername.getText());
+					Connections.state.setString(5,tfRegisterEmail.getText());
+					Connections.state.setString(6,pfRegisterPassword.getText());
+					Connections.state.setString(7,"user");
+					Connections.state.executeUpdate();
+					Connections.closeCon();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+				 stg.setScene(LoginScene.loginScene);
+				 stg.setTitle("Login"); 
+			 }
+		 });
 	}
 }
