@@ -2,6 +2,7 @@ package view;
 
 import admin_view.AmenitiesAdmin;
 import admin_view.FacilityAdmin;
+import admin_view.RoomsAdminScene;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -81,6 +82,11 @@ public class MainScene {
 		btnFacilitiesAdmin.setOnAction(e->{
 			stg.setScene(FacilityAdmin.facilityAdminScene);
 			stg.setTitle("Facility");
+		});
+		
+		btnRooms.setOnAction(e->{
+			stg.setScene(RoomsAdminScene.adminRoomsScene);
+			stg.setTitle("Rooms");
 		});
 	}
 }

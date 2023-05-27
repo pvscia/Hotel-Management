@@ -3,7 +3,7 @@ package rooms;
 public abstract class Room {
 	private String bedType, roomType, roomView,avaibility;
 	private int roomSize, roomCapacity, roomNumber,roomPrice;
-	private boolean do_not_disturb,wake_up_call,emergency;
+	private boolean do_not_disturb,wake_up_call;
 	
 	
 
@@ -20,18 +20,6 @@ public abstract class Room {
 		this.roomPrice = roomPrice;
 		this.do_not_disturb = do_not_disturb;
 		this.wake_up_call = wake_up_call;
-		this.emergency = emergency;
-	}
-
-
-	
-	public boolean isEmergency() {
-		return emergency;
-	}
-
-
-	public void setEmergency(boolean emergency) {
-		this.emergency = emergency;
 	}
 
 

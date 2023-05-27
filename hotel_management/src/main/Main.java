@@ -2,6 +2,7 @@ package main;
 
 import admin_view.AmenitiesAdmin;
 import admin_view.FacilityAdmin;
+import admin_view.RoomsAdminScene;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import persons.Person;
@@ -25,6 +26,7 @@ public class Main extends Application {
 		new AmenitiesAdmin(stg);
 		new BookFacility(stg);
 		new FacilityAdmin(stg);
+		new RoomsAdminScene(stg);
 		stg.setTitle("Login");
 		stg.setScene(LoginScene.loginScene);
 		stg.show();
