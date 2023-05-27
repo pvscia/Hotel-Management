@@ -42,6 +42,7 @@ public class OrderAmenities {
 		
 		vbAmenities.getChildren().addAll(lblAmenities,cbAmenities,
 				lblQty,qty,submit);
+		vbAmenities.setSpacing(5);
 		bp.setTop(btnBack);
 		bp.setAlignment(btnBack, Pos.CENTER_LEFT);
 		bp.setCenter(vbAmenities);

@@ -3,7 +3,6 @@ package view;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -50,7 +49,7 @@ public class MainScene {
 		vbMain.getChildren().add(gpUserCheckIn);
 		vbMain.getChildren().add(gpAdmin);
 		vbMain.setAlignment(Pos.CENTER);
-		mainScene = new Scene(vbMain,1500,800);
+		mainScene = new Scene(vbMain,400,400);
 		
 		btnAmenities.setOnAction(e->{
 			stg.setScene(OrderAmenities.orderAmenitiesScene);
@@ -60,6 +59,16 @@ public class MainScene {
 		btnAmenitiesAdmin.setOnAction(e->{
 			stg.setScene(AmenitiesAdmin.amenitiesAdminScene);
 			stg.setTitle("Amenities");
+		});
+		
+		btnLogOut.setOnAction(e->{
+			stg.setScene(LoginScene.loginScene);
+			stg.setTitle("Login");
+		});
+		
+		btnLogOutA.setOnAction(e->{
+			stg.setScene(LoginScene.loginScene);
+			stg.setTitle("Login");
 		});
 	}
 }
