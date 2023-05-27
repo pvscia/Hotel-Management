@@ -1,4 +1,4 @@
-package view;
+package admin_view;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -14,6 +14,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import view.MainScene;
 
 public class AmenitiesAdmin {
 	public static Scene amenitiesAdminScene;

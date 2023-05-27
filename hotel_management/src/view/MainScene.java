@@ -1,5 +1,7 @@
 package view;
 
+import admin_view.AmenitiesAdmin;
+import admin_view.FacilityAdmin;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -69,6 +71,16 @@ public class MainScene {
 		btnLogOutA.setOnAction(e->{
 			stg.setScene(LoginScene.loginScene);
 			stg.setTitle("Login");
+		});
+		
+		btnFacility.setOnAction(e->{
+			stg.setScene(BookFacility.bookFacilityScene);
+			stg.setTitle("Book Facility");
+		});
+		
+		btnFacilitiesAdmin.setOnAction(e->{
+			stg.setScene(FacilityAdmin.facilityAdminScene);
+			stg.setTitle("Facility");
 		});
 	}
 }
