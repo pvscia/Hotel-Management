@@ -2,7 +2,6 @@ package main;
 
 import admin_view.AmenitiesAdmin;
 import admin_view.FacilityAdmin;
-import admin_view.NewReservationView;
 import admin_view.RoomsAdminScene;
 import javafx.application.Application;
 import javafx.stage.Stage;

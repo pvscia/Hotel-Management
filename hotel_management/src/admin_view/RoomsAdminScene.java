@@ -1,6 +1,8 @@
 package admin_view;
 
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import database.Connections;
 import database.Functions;
@@ -37,13 +39,14 @@ public class RoomsAdminScene {
 	VBox vb = new VBox();
 	static ObservableList<Room> olRooms;
 	
-	Label lblGuest = new Label("Guest ID");
-	Label lblRoomNo = new Label("Room Number");
+	Label lblGuest = new Label("Guest ID: ");
+	Label lblRoomNo = new Label("Room Number: ");
 	Label checkIn = new Label("NEW RESERVATION : ");
 	TextField tfGuest = new TextField();
 	Spinner<Integer> ciRoomNo = new Spinner<>();
 	SpinnerValueFactory<Integer> ciSVF = new SpinnerValueFactory.IntegerSpinnerValueFactory(101, 310);
 	Button btnCheckIn = new Button("Check In");
+	HBox hbCheckIn = new HBox();
 	
 	TableColumn<Room,String> roomNumber = new TableColumn<>("No");
 	TableColumn<Room,String> bedType = new TableColumn<>("Bed Type");
@@ -66,6 +69,10 @@ public class RoomsAdminScene {
 		roomNo.setEditable(true);
 		hb.getChildren().addAll(lblRoom,roomNo,clean,wakeUp);
 		vb.getChildren().add(hb);
+		
+		vb.getChildren().addAll(checkIn,hbCheckIn);
+		hbCheckIn.getChildren().addAll(lblGuest,tfGuest,lblRoomNo,roomNo,btnCheckIn);
+		
 
 		adminRoomsScene = new Scene(vb,1000,500);
 		back.setOnAction(e->{
@@ -120,6 +127,44 @@ public class RoomsAdminScene {
 						stg.setTitle("Main Menu");
 					}else{
 						Functions.alertUser("The room is not requesting wake up call");
+					}
+				}else {
+					Functions.alertUser("Room is not in our list");
+				}
+				Connections.closeCon();
+
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		});
+		
+		btnCheckIn.setOnAction(e->{
+			try {
+				Connections.openCon();
+				String query = "SELECT * FROM room WHERE roomNumber = " + roomNo.getValue();
+				Connections.state = Connections.connect.prepareStatement(query);
+				ResultSet rs = Connections.state.executeQuery();
+				if(rs.next()) {
+					if(rs.getString("availability").equals("Need Cleaning")) {
+						Functions.alertUser("Room still dirty, clean it first!");
+					}else if(rs.getString("availability").equals("Available")) {
+						query = "UPDATE room SET availability = 'Booked' WHERE roomNumber = " + roomNo.getValue();
+						Connections.state = Connections.connect.prepareStatement(query);
+						Connections.state.executeUpdate();
+						
+						
+						DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+						LocalDateTime now = LocalDateTime.now(); 
+						query = "INSERT INTO `booking`(`guestID`, `roomNumber`, `check_in`) VALUES ('"+tfGuest.getText()+"',"+roomNo.getValue()+",'"+dtf.format(now)+"')";
+						System.out.println(query);
+						Connections.state = Connections.connect.prepareStatement(query);
+						Connections.state.executeUpdate();
+						
+						Functions.informUser("Room is booked");
+						stg.setScene(MainScene.mainScene);
+						stg.setTitle("Main Menu");
+					}else {
+						Functions.alertUser("The room is occupied");
 					}
 				}else {
 					Functions.alertUser("Room is not in our list");
