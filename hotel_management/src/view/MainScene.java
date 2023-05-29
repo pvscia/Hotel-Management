@@ -1,18 +1,24 @@
 package view;
 
+import java.sql.ResultSet;
+
 import admin_view.AmenitiesAdmin;
 import admin_view.FacilityAdmin;
 import admin_view.RoomsAdminScene;
+import database.Connections;
+import database.Functions;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import main.Main;
 
 public class MainScene {
 	public static Scene mainScene;
-	VBox vbMain = new VBox();
+	public static VBox vbMain = new VBox();
 	Button btnReserve = new Button("New Reservation");
 	Button btnAmenities = new Button("Order Amenities");
 //	Button btnOrderFnB = new Button("Order Food and Drink");
@@ -25,7 +31,10 @@ public class MainScene {
 	Button btnBookings = new Button("Reservations");
 	Button btnAmenitiesAdmin = new Button("Amenities");
 	Button btnFacilitiesAdmin = new Button("Facilities");
+	Button btnUsers = new Button("Users");
 	Button btnLogOutA = new Button("Log Out");
+	
+	public static Label lbl= new Label();
 	
 	public static GridPane gpUserCheckIn = new GridPane();
 	public static GridPane gpAdmin = new GridPane();
@@ -48,11 +57,12 @@ public class MainScene {
 		gpAdmin.add(btnFacilitiesAdmin, 0, 4);
 		gpAdmin.add(btnLogOutA, 0, 5);
 		gpAdmin.setAlignment(Pos.CENTER);
-
+		
+		vbMain.getChildren().add(lbl);
 		vbMain.getChildren().add(gpUserCheckIn);
-		vbMain.getChildren().add(gpAdmin);
+//		vbMain.getChildren().add(gpAdmin);
 		vbMain.setAlignment(Pos.CENTER);
-		mainScene = new Scene(vbMain,400,400);
+		mainScene = new Scene(vbMain,1000,500);
 		
 		btnAmenities.setOnAction(e->{
 			stg.setScene(OrderAmenities.orderAmenitiesScene);
@@ -85,8 +95,60 @@ public class MainScene {
 		});
 		
 		btnRooms.setOnAction(e->{
+			new RoomsAdminScene(stg);
 			stg.setScene(RoomsAdminScene.adminRoomsScene);
 			stg.setTitle("Rooms");
+		});
+		
+		
+		btnDND.setOnAction(e->{
+			try {
+				Connections.openCon();
+				String query = "SELECT * FROM room WHERE roomNumber = "+Main.roomNo;
+				Connections.state = Connections.connect.prepareStatement(query);
+				ResultSet rs = Connections.state.executeQuery();
+				if(rs.next()) {
+					if(rs.getBoolean("do_not_disturb")==false) {
+						query = "UPDATE room SET do_not_disturb = true WHERE roomNumber = "+Main.roomNo;
+						Functions.informUser("Your room is set to do not disturb");
+					}else {
+						query = "UPDATE room SET do_not_disturb = false WHERE roomNumber = "+Main.roomNo;
+						Functions.informUser("Do not disturb turned off");
+
+					}
+				}
+				Connections.state = Connections.connect.prepareStatement(query);
+				Connections.state.executeUpdate();
+				Connections.closeCon();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+			
+		});
+		
+		btnWakeUp.setOnAction(e->{
+			try {
+				Connections.openCon();
+				String query = "SELECT * FROM room WHERE roomNumber = "+Main.roomNo;
+				Connections.state = Connections.connect.prepareStatement(query);
+				ResultSet rs = Connections.state.executeQuery();
+				if(rs.next()) {
+					if(rs.getBoolean("wake_up_call")==false) {
+						query = "UPDATE room SET wake_up_call = true WHERE roomNumber = "+Main.roomNo;
+						Functions.informUser("You will receive wake up call on 06.00AM");
+					}else {
+						query = "UPDATE room SET wake_up_call = false WHERE roomNumber = "+Main.roomNo;
+						Functions.informUser("Wake up call turned off");
+
+					}
+				}
+				Connections.state = Connections.connect.prepareStatement(query);
+				Connections.state.executeUpdate();
+				Connections.closeCon();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+			
 		});
 	}
 }

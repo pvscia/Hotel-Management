@@ -56,7 +56,7 @@ public class LoginScene {
 		
 		bpLogin.setCenter(gpLogin);
 		
-		loginScene = new Scene(bpLogin,400,400);
+		loginScene = new Scene(bpLogin,1000,500);
 		
 		 //LOGIN SCENE => REGISTER SCENE
 		 btnLogin_register.setOnAction(e->{
@@ -79,8 +79,11 @@ public class LoginScene {
 						if(pfLoginPassword.getText().equals(rs.getString("password"))) {
 							 if(rs.getString("role").equals("admin")) {
 									Main.user = new Staff(rs.getString("id"), rs.getString("name"), rs.getString("gender"), rs.getString("username"), rs.getString("email"), rs.getString("password"));
-									MainScene.gpUserCheckIn.setVisible(false);
-									MainScene.gpAdmin.setVisible(true);
+									MainScene.lbl.setText("Welcome, "+Main.user.getName()+"\nUserID: "+Main.user.getId());
+									MainScene.vbMain.getChildren().remove(1);
+									MainScene.vbMain.getChildren().add(MainScene.gpAdmin);
+//									MainScene.gpUserCheckIn.setVisible(false);
+//									MainScene.gpAdmin.setVisible(true);
 								}else if(rs.getString("role").equals("user")) {
 									Main.user = new Guest(rs.getString("id"), rs.getString("name"), rs.getString("gender"), rs.getString("username"), rs.getString("email"), rs.getString("password"));
 									query = "SELECT * FROM booking WHERE guestID = ?";
@@ -89,10 +92,13 @@ public class LoginScene {
 									rs = Connections.state.executeQuery();
 									if(rs.next()) {
 										Main.roomNo = rs.getInt("roomNumber");
-										MainScene.gpUserCheckIn.setVisible(true);
-										MainScene.gpAdmin.setVisible(false);
+										MainScene.lbl.setText("Welcome, "+Main.user.getName()+"\nUserID: "+Main.user.getId());
+										MainScene.vbMain.getChildren().remove(1);
+										MainScene.vbMain.getChildren().add(MainScene.gpUserCheckIn);
+//										MainScene.gpUserCheckIn.setVisible(true);
+//										MainScene.gpAdmin.setVisible(false);
 									}else {
-										alert = "You have not booked / checked in";
+										alert = "Welcome, "+Main.user.getName()+"\nUserID: "+Main.user.getId() +"\nYou have not booked / checked in\nPlease contact reception to book a room";
 									}
 								}
 							 	if(alert == null) {

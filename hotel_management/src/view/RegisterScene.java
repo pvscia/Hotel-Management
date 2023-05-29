@@ -86,7 +86,7 @@ public class RegisterScene {
 
 		bpRegister.setCenter(vbRegister);
 		bpRegister.setPadding(new Insets(30));
-		registerScene = new Scene(bpRegister,600,475);
+		registerScene = new Scene(bpRegister,1000,500);
 		
 		
 		//REGISTER SCENE => LOGIN SCENE

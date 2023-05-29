@@ -48,7 +48,7 @@ public class OrderAmenities {
 		bp.setCenter(vbAmenities);
 		bp.setAlignment(vbAmenities, Pos.CENTER);
 		
-		orderAmenitiesScene= new Scene(bp,400,400);
+		orderAmenitiesScene= new Scene(bp,1000,500);
 		
 		btnBack.setOnAction(e->{
 			clearFields();

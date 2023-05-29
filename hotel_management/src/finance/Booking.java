@@ -4,23 +4,16 @@ import java.util.Date;
 import rooms.Room;
 
 public class Booking {
-	private String id,guestID;
-	private Date checkIn,checkOut;
+	private String guestID;
+	private Date checkIn;
 	private int roomNumber;
-	public Booking(String id, String guestID, Date checkIn, Date checkOut, int roomNumber) {
+	public Booking(String guestID, Date checkIn, int roomNumber) {
 		super();
-		this.id = id;
 		this.guestID = guestID;
 		this.checkIn = checkIn;
-		this.checkOut = checkOut;
 		this.roomNumber = roomNumber;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public String getGuestID() {
 		return guestID;
 	}
@@ -33,12 +26,7 @@ public class Booking {
 	public void setCheckIn(Date checkIn) {
 		this.checkIn = checkIn;
 	}
-	public Date getCheckOut() {
-		return checkOut;
-	}
-	public void setCheckOut(Date checkOut) {
-		this.checkOut = checkOut;
-	}
+	
 	public int getRoomNumber() {
 		return roomNumber;
 	}
