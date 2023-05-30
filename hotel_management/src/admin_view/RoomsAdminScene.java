@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import main.Main;
 import rooms.Room;
 import view.MainScene;
 
@@ -71,7 +72,9 @@ public class RoomsAdminScene {
 		vb.getChildren().add(hb);
 		
 		vb.getChildren().addAll(checkIn,hbCheckIn);
-		hbCheckIn.getChildren().addAll(lblGuest,tfGuest,lblRoomNo,roomNo,btnCheckIn);
+		ciRoomNo.setValueFactory(ciSVF);
+		ciRoomNo.setEditable(true);
+		hbCheckIn.getChildren().addAll(lblGuest,tfGuest,lblRoomNo,ciRoomNo,btnCheckIn);
 		
 
 		adminRoomsScene = new Scene(vb,1000,500);
@@ -141,34 +144,41 @@ public class RoomsAdminScene {
 		btnCheckIn.setOnAction(e->{
 			try {
 				Connections.openCon();
-				String query = "SELECT * FROM room WHERE roomNumber = " + roomNo.getValue();
+				String query = "SELECT * FROM user WHERE id = '" + tfGuest.getText()+"'";
 				Connections.state = Connections.connect.prepareStatement(query);
 				ResultSet rs = Connections.state.executeQuery();
 				if(rs.next()) {
-					if(rs.getString("availability").equals("Need Cleaning")) {
-						Functions.alertUser("Room still dirty, clean it first!");
-					}else if(rs.getString("availability").equals("Available")) {
-						query = "UPDATE room SET availability = 'Booked' WHERE roomNumber = " + roomNo.getValue();
-						Connections.state = Connections.connect.prepareStatement(query);
-						Connections.state.executeUpdate();
-						
-						
-						DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
-						LocalDateTime now = LocalDateTime.now(); 
-						query = "INSERT INTO `booking`(`guestID`, `roomNumber`, `check_in`) VALUES ('"+tfGuest.getText()+"',"+roomNo.getValue()+",'"+dtf.format(now)+"')";
-						System.out.println(query);
-						Connections.state = Connections.connect.prepareStatement(query);
-						Connections.state.executeUpdate();
-						
-						Functions.informUser("Room is booked");
-						stg.setScene(MainScene.mainScene);
-						stg.setTitle("Main Menu");
+					query = "SELECT * FROM room WHERE roomNumber = " + ciRoomNo.getValue();
+					Connections.state = Connections.connect.prepareStatement(query);
+					rs = Connections.state.executeQuery();
+					if(rs.next()) {
+						if(rs.getString("availability").equals("Need Cleaning")) {
+							Functions.alertUser("Room still dirty, clean it first!");
+						}else if(rs.getString("availability").equals("Available")) {
+							query = "UPDATE room SET availability = 'Booked' WHERE roomNumber = " + ciRoomNo.getValue();
+							Connections.state = Connections.connect.prepareStatement(query);
+							Connections.state.executeUpdate();
+							
+							
+							LocalDateTime now = LocalDateTime.now(); 
+							query = "INSERT INTO `booking`(`guestID`, `roomNumber`, `check_in`) VALUES ('"+tfGuest.getText()+"',"+ciRoomNo.getValue()+",'"+ Main.dtf.format(now)+"')";
+							Connections.state = Connections.connect.prepareStatement(query);
+							Connections.state.executeUpdate();
+							
+							Functions.informUser("Room is booked");
+							stg.setScene(MainScene.mainScene);
+							stg.setTitle("Main Menu");
+						}else {
+							Functions.alertUser("The room is occupied");
+						}
 					}else {
-						Functions.alertUser("The room is occupied");
+						Functions.alertUser("Room is not in our list");
 					}
+					
 				}else {
-					Functions.alertUser("Room is not in our list");
+					Functions.alertUser("User ID is not available");
 				}
+				
 				Connections.closeCon();
 
 			} catch (Exception e2) {

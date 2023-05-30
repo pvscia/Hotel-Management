@@ -4,7 +4,9 @@ import java.sql.ResultSet;
 
 import admin_view.AmenitiesAdmin;
 import admin_view.FacilityAdmin;
+import admin_view.ReservationsAdminScene;
 import admin_view.RoomsAdminScene;
+import admin_view.UsersView;
 import database.Connections;
 import database.Functions;
 import javafx.geometry.Pos;
@@ -25,6 +27,7 @@ public class MainScene {
 	Button btnFacility = new Button("Book Facility");
 	Button btnDND = new Button("Do Not Disturb");
 	Button btnWakeUp = new Button("Wake Up Call (06.00)");
+	Button btnComplaint = new Button("Complaints");
 	Button btnLogOut = new Button("Log Out");
 	
 	Button btnRooms = new Button("Rooms");
@@ -47,7 +50,8 @@ public class MainScene {
 		gpUserCheckIn.add(btnFacility, 1, 0);
 		gpUserCheckIn.add(btnDND, 0, 1);
 		gpUserCheckIn.add(btnWakeUp, 1, 1);
-		gpUserCheckIn.add(btnLogOut, 0, 2);
+		gpUserCheckIn.add(btnComplaint, 0, 2);
+		gpUserCheckIn.add(btnLogOut, 1, 2);
 		gpUserCheckIn.setAlignment(Pos.CENTER);
 
 		gpAdmin.add(btnReserve, 0, 0);
@@ -55,7 +59,8 @@ public class MainScene {
 		gpAdmin.add(btnBookings, 0, 2);
 		gpAdmin.add(btnAmenitiesAdmin, 0, 3);
 		gpAdmin.add(btnFacilitiesAdmin, 0, 4);
-		gpAdmin.add(btnLogOutA, 0, 5);
+		gpAdmin.add(btnUsers, 0, 5);
+		gpAdmin.add(btnLogOutA, 0, 6);
 		gpAdmin.setAlignment(Pos.CENTER);
 		
 		vbMain.getChildren().add(lbl);
@@ -100,6 +105,17 @@ public class MainScene {
 			stg.setTitle("Rooms");
 		});
 		
+		btnUsers.setOnAction(e->{
+			new UsersView(stg);
+			stg.setScene(UsersView.usersViewScene);
+			stg.setTitle("Users");
+		});
+		
+		btnBookings.setOnAction(e->{
+			new ReservationsAdminScene(stg);
+			stg.setScene(ReservationsAdminScene.adminReservationScene);
+			stg.setTitle("Reservations");
+		});
 		
 		btnDND.setOnAction(e->{
 			try {

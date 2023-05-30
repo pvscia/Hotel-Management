@@ -1,8 +1,12 @@
 package main;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+
 import admin_view.AmenitiesAdmin;
 import admin_view.FacilityAdmin;
 import admin_view.RoomsAdminScene;
+import admin_view.UsersView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import persons.Person;
@@ -16,6 +20,9 @@ public class Main extends Application {
 	
 	public static Person user;
 	public static int roomNo;
+	public static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
+	public static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
 	
 	@Override
 	public void start(Stage stg) throws Exception {
@@ -27,6 +34,7 @@ public class Main extends Application {
 		new BookFacility(stg);
 		new FacilityAdmin(stg);
 		new RoomsAdminScene(stg);
+		new UsersView(stg);
 		stg.setTitle("Login");
 		stg.setScene(LoginScene.loginScene);
 		stg.show();
