@@ -14,12 +14,21 @@ public class ComplaintPool {
 		
 	}
 	
-	public void addComplaint(String id, String complaint){
-		complaints.add(new Complaint(id, complaint));
+	public void addComplaint(int roomNumber, String id, String complaint){
+//		Adds complaint with the date of entering the complaint as the date
+		
+		complaints.add(new Complaint(roomNumber, id, complaint));
+		totalComplaint++;
+	}
+	
+	public void addComplaintManual(int roomNumber, String id, String complaint, int day, int month, int year) {
+//		Adds complaint with a custom date
+		complaints.add(new Complaint(roomNumber, id, complaint, day, month, year));
 		totalComplaint++;
 	}
 	
 	public void setResolved(int index) {
+//		Set a complaint as resolved
 		complaints.get(index).setResolved();
 		resolvedComplaint++;
 	}
@@ -42,10 +51,11 @@ public class ComplaintPool {
 	}
 	
 	public void checkComplaintWeek() {
+//		Deletes all complaints older than 7 days
+		
 		for(int i = 0; i < totalComplaint; i++) {
-			LocalTime now = LocalTime.now();
+			LocalDate now = LocalDate.now();
 			long diff = ChronoUnit.DAYS.between(complaints.get(i).date, now);
-			
 			if(diff > 7) dropComplaint(i);
 		}
 	}
