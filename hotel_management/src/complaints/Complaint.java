@@ -7,23 +7,29 @@ public class Complaint {
 	String complaint;
 	String id;
 	int roomNumber;
-	boolean resolved = false;
-	public Complaint(int roomNumber, String id, String complaint){
+	int rating;
+	public Complaint(int roomNumber, String id, int rating, String complaint){
+		if(rating < 1 || rating > 5) {
+			System.out.println("Rating must be within 1 and 5");
+			return;
+		}
 		this.roomNumber = roomNumber;
 		this.complaint = complaint;
 		this.id = id;
 		this.date = LocalDate.now();
+		this.rating = rating;
 	}
 	
-	public Complaint(int roomNumber, String id, String complaint, int day, int month, int year) {
+	public Complaint(int roomNumber, String id, int rating, String complaint, int day, int month, int year) {
+		if(rating < 1 || rating > 5) {
+			System.out.println("Rating must be within 1 and 5");
+			return;
+		}
 		this.roomNumber = roomNumber;
 		this.complaint = complaint;
 		this.id = id;
+		this.rating = rating;
 		date = LocalDate.of(year, month, day);
-	}
-	
-	public void setResolved() {
-		resolved = true;
 	}
 	
 	public void printComplaint() {
