@@ -5,12 +5,14 @@ import java.time.format.DateTimeFormatter;
 
 import admin_view.AmenitiesAdmin;
 import admin_view.FacilityAdmin;
+import admin_view.RatingsView;
 import admin_view.RoomsAdminScene;
 import admin_view.UsersView;
 import database.Functions;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import persons.Person;
+import view.AddRatingScene;
 import view.BookFacility;
 import view.LoginScene;
 import view.MainScene;
@@ -36,6 +38,8 @@ public class Main extends Application {
 		new FacilityAdmin(stg);
 		new RoomsAdminScene(stg);
 		new UsersView(stg);
+		new AddRatingScene(stg);
+		new RatingsView(stg);
 		stg.setTitle("Login");
 		stg.setScene(LoginScene.loginScene);
 		stg.show();

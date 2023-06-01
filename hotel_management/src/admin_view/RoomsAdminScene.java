@@ -2,8 +2,6 @@ package admin_view;
 
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import database.Connections;
 import database.Functions;
 import javafx.beans.property.SimpleStringProperty;
@@ -161,8 +159,9 @@ public class RoomsAdminScene {
 							
 							
 							LocalDateTime now = LocalDateTime.now(); 
-							query = "INSERT INTO `booking`(`guestID`, `roomNumber`, `check_in`) VALUES ('"+tfGuest.getText()+"',"+ciRoomNo.getValue()+",'"+ Main.dtf.format(now)+"')";
+							query = "INSERT INTO `booking`(`guestID`, `roomNumber`, `checkIn`) VALUES ('"+tfGuest.getText()+"',"+ciRoomNo.getValue()+",'"+ Main.dtf.format(now)+"')";
 							Connections.state = Connections.connect.prepareStatement(query);
+							System.out.println(query);
 							Connections.state.executeUpdate();
 							
 							Functions.informUser("Room is booked");

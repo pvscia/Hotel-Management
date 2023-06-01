@@ -1,19 +1,19 @@
-package complaints;
+package ratings;
 
 import java.util.*;
 
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 
-public class ComplaintPool {
+public class RatingPool {
 //	Complaint Pool is where complaints are stored
 //	Complaints: critique and suggestions
 	
-	ArrayList<Complaint> complaints = new ArrayList<Complaint>();
+	ArrayList<Rating> complaints = new ArrayList<Rating>();
 	int totalComplaint = 0;
 	float avgRating;
 	
-	ComplaintPool(){
+	RatingPool(){
 		
 	}
 	
@@ -21,7 +21,7 @@ public class ComplaintPool {
 //		Update the avgRating
 		int temp = 0;
 		for(int i = 0; i < totalComplaint; i++) {
-			temp += complaints.get(i).rating;
+			temp += complaints.get(i).getRating();
 		}
 		avgRating = temp / totalComplaint;
 	}
@@ -53,18 +53,18 @@ public class ComplaintPool {
 			System.out.println("Rating must be within 1 and 5");
 			return;
 		}
-		complaints.add(new Complaint(roomNumber, id, rating, complaint));
+//		complaints.add(new Rating(roomNumber, rating, complaint));
 		updateRatingFast(rating);
 		totalComplaint++;
 	}
 	
-	public void addComplaintManual(int roomNumber, String id, int rating, String complaint, int day, int month, int year) {
+	public void addComplaintManual(int roomNumber, int rating, String complaint, int day, int month, int year) {
 //		Adds complaint with a custom date
 		if(rating < 1 || rating > 5) {
 			System.out.println("Rating must be within 1 and 5");
 			return;
 		}
-		complaints.add(new Complaint(roomNumber, id, rating, complaint, day, month, year));
+		complaints.add(new Rating(roomNumber, rating, complaint, day, month, year));
 		updateRatingFast(rating);
 		totalComplaint++;
 	}
@@ -81,7 +81,7 @@ public class ComplaintPool {
 	}
 	
 	public void dropComplaint(int index) {
-		updateRatingFastN(complaints.get(index).rating);
+		updateRatingFastN(complaints.get(index).getRating());
 		complaints.remove(index);
 		
 		totalComplaint--;

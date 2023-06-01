@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 
 import admin_view.AmenitiesAdmin;
 import admin_view.FacilityAdmin;
+import admin_view.RatingsView;
 import admin_view.ReservationsAdminScene;
 import admin_view.RoomsAdminScene;
 import admin_view.UsersView;
@@ -22,17 +23,17 @@ public class MainScene {
 	public static Scene mainScene;
 	public static VBox vbMain = new VBox();
 	Button btnAmenities = new Button("Order Amenities");
-//	Button btnOrderFnB = new Button("Order Food and Drink");
 	Button btnFacility = new Button("Book Facility");
 	Button btnDND = new Button("Do Not Disturb");
 	Button btnWakeUp = new Button("Wake Up Call (06.00)");
-	Button btnComplaint = new Button("Complaints");
+	Button btnRating = new Button("Add Rating");
 	Button btnLogOut = new Button("Log Out");
 	
 	Button btnRooms = new Button("Rooms");
 	Button btnBookings = new Button("Reservations");
 	Button btnAmenitiesAdmin = new Button("Amenities");
 	Button btnFacilitiesAdmin = new Button("Facilities");
+	Button btnRatings = new Button("Ratings");
 	Button btnUsers = new Button("Users");
 	Button btnLogOutA = new Button("Log Out");
 	
@@ -49,7 +50,7 @@ public class MainScene {
 		gpUserCheckIn.add(btnFacility, 1, 0);
 		gpUserCheckIn.add(btnDND, 0, 1);
 		gpUserCheckIn.add(btnWakeUp, 1, 1);
-		gpUserCheckIn.add(btnComplaint, 0, 2);
+		gpUserCheckIn.add(btnRating, 0, 2);
 		gpUserCheckIn.add(btnLogOut, 1, 2);
 		gpUserCheckIn.setAlignment(Pos.CENTER);
 
@@ -58,7 +59,8 @@ public class MainScene {
 		gpAdmin.add(btnAmenitiesAdmin, 0, 2);
 		gpAdmin.add(btnFacilitiesAdmin, 0, 3);
 		gpAdmin.add(btnUsers, 0, 4);
-		gpAdmin.add(btnLogOutA, 0, 5);
+		gpAdmin.add(btnRatings, 0, 5);
+		gpAdmin.add(btnLogOutA, 0, 6);
 		gpAdmin.setAlignment(Pos.CENTER);
 		
 		vbMain.getChildren().add(lbl);
@@ -165,5 +167,14 @@ public class MainScene {
 			}
 			
 		});
-	}
+		
+		btnRating.setOnAction(e->{
+			stg.setScene(AddRatingScene.addRatingScene);
+			stg.setTitle("Add Rating");
+		});
+		
+		btnRatings.setOnAction(e->{
+			stg.setScene(RatingsView.ratingsScene);
+			stg.setTitle("Ratings");
+		});	}
 }
