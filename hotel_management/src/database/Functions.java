@@ -1,7 +1,10 @@
 package database;
 
+import java.util.Optional;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 
 public class Functions {
 	public static void alertUser(String alert) {
@@ -14,6 +17,17 @@ public class Functions {
 		Alert popUp = new Alert(AlertType.INFORMATION);
 		 popUp.setContentText(inform);
 		 popUp.show();
+	}
+	
+	public static boolean confirmUser(String confirm) {
+		Alert popUp = new Alert(AlertType.CONFIRMATION);
+		 popUp.setContentText(confirm);
+		 Optional<ButtonType> confirmm =  popUp.showAndWait();
+		 if(!confirmm.isPresent() || confirmm.get() != ButtonType.OK) {
+				return false;
+			} else {
+				return true;
+			}
 	}
 	
 	public static String generateID(String type) {

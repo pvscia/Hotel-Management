@@ -83,13 +83,29 @@ public class ReservationsAdminScene {
 			}else {
 				try {
 					Connections.openCon();
-					String query = "SELECT * FROM booking WHERE guestID = '"+tfGuestID+"'";
+					String query = "SELECT * FROM booking WHERE guestID = '"+tfGuestID.getText()+"'";
 					Connections.state = Connections.connect.prepareStatement(query);
 					ResultSet rs = Connections.state.executeQuery();
 					if(rs.next()) {
-						query = "SELECT * FROM booking WHERE guestID = '"+tfGuestID+"' AND roomNumber = " + roomNumber.getValue();
+						query = "SELECT guestID, b.roomNumber, roomPrice,  CURRENT_DATE - checkIn as days FROM booking b JOIN room r ON r.roomNumber = b.roomNumber WHERE guestID = '"+tfGuestID.getText()+"' AND b.roomNumber = " + roomNumber.getValue();
 						Connections.state = Connections.connect.prepareStatement(query);
 						rs = Connections.state.executeQuery();
+						if(rs.next()) {
+							boolean f = Functions.confirmUser("Checking out this guest?");
+							if(f) {
+								Functions.informUser("Total charge : \n"+rs.getInt("roomPrice")+" * "+rs.getInt("days")+" days = "+ (rs.getInt("roomPrice")*rs.getInt("days")));
+								
+								query = "DELETE FROM booking WHERE guestID = '"+tfGuestID.getText()+"' AND roomNumber = " + roomNumber.getValue();
+								Connections.state = Connections.connect.prepareStatement(query);
+								Connections.state.executeUpdate();
+								
+								query = "UPDATE room SET availability = 'Need Cleaning', wake_up_call = false, do_not_disturb = false WHERE roomNumber = " + roomNumber.getValue();
+								Connections.state = Connections.connect.prepareStatement(query);
+								Connections.state.executeUpdate();
+							}
+						}else{
+							Functions.alertUser("Guest is not this room");
+						}
 					}else {
 						Functions.alertUser("Guest is not booking any room");
 					}

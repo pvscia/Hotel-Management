@@ -21,7 +21,6 @@ import main.Main;
 public class MainScene {
 	public static Scene mainScene;
 	public static VBox vbMain = new VBox();
-	Button btnReserve = new Button("New Reservation");
 	Button btnAmenities = new Button("Order Amenities");
 //	Button btnOrderFnB = new Button("Order Food and Drink");
 	Button btnFacility = new Button("Book Facility");
@@ -54,13 +53,12 @@ public class MainScene {
 		gpUserCheckIn.add(btnLogOut, 1, 2);
 		gpUserCheckIn.setAlignment(Pos.CENTER);
 
-		gpAdmin.add(btnReserve, 0, 0);
-		gpAdmin.add(btnRooms, 0, 1);
-		gpAdmin.add(btnBookings, 0, 2);
-		gpAdmin.add(btnAmenitiesAdmin, 0, 3);
-		gpAdmin.add(btnFacilitiesAdmin, 0, 4);
-		gpAdmin.add(btnUsers, 0, 5);
-		gpAdmin.add(btnLogOutA, 0, 6);
+		gpAdmin.add(btnRooms, 0, 0);
+		gpAdmin.add(btnBookings, 0, 1);
+		gpAdmin.add(btnAmenitiesAdmin, 0, 2);
+		gpAdmin.add(btnFacilitiesAdmin, 0, 3);
+		gpAdmin.add(btnUsers, 0, 4);
+		gpAdmin.add(btnLogOutA, 0, 5);
 		gpAdmin.setAlignment(Pos.CENTER);
 		
 		vbMain.getChildren().add(lbl);
@@ -68,6 +66,7 @@ public class MainScene {
 //		vbMain.getChildren().add(gpAdmin);
 		vbMain.setAlignment(Pos.CENTER);
 		mainScene = new Scene(vbMain,1000,500);
+		
 		
 		btnAmenities.setOnAction(e->{
 			stg.setScene(OrderAmenities.orderAmenitiesScene);
