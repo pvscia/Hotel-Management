@@ -16,12 +16,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import main.Main;
+import javafx.scene.layout.HBox;
 
 public class MainScene {
 	public static Scene mainScene;
 	public static VBox vbMain = new VBox();
+
+	
+	public static FlowPane containerPane = new FlowPane();
+	HBox buttonContainer = new HBox();
+	HBox buttonContainer2 = new HBox();
+	VBox contentBox = new VBox();
 	Button btnAmenities = new Button("Order Amenities");
 	Button btnFacility = new Button("Book Facility");
 	Button btnDND = new Button("Do Not Disturb");
@@ -29,6 +39,12 @@ public class MainScene {
 	Button btnRating = new Button("Add Rating");
 	Button btnLogOut = new Button("Log Out");
 	
+	
+	public static FlowPane containerPaneAdmin = new FlowPane();
+	HBox buttonContainerAdmin = new HBox();
+	HBox buttonContainer2Admin = new HBox();
+	HBox buttonContainer3Admin = new HBox();
+	VBox contentBoxAdmin = new VBox();
 	Button btnRooms = new Button("Rooms");
 	Button btnBookings = new Button("Reservations");
 	Button btnAmenitiesAdmin = new Button("Amenities");
@@ -37,38 +53,112 @@ public class MainScene {
 	Button btnUsers = new Button("Users");
 	Button btnLogOutA = new Button("Log Out");
 	
-	public static Label lbl= new Label();
+	public static Label lbl = new Label();
+	public static Label lblA = new Label();
 	
 	public static GridPane gpUserCheckIn = new GridPane();
 	public static GridPane gpAdmin = new GridPane();
 
 	
 	
-	
 	public MainScene(Stage stg) {
-		gpUserCheckIn.add(btnAmenities, 0, 0);
-		gpUserCheckIn.add(btnFacility, 1, 0);
-		gpUserCheckIn.add(btnDND, 0, 1);
-		gpUserCheckIn.add(btnWakeUp, 1, 1);
-		gpUserCheckIn.add(btnRating, 0, 2);
-		gpUserCheckIn.add(btnLogOut, 1, 2);
-		gpUserCheckIn.setAlignment(Pos.CENTER);
+//		gpUserCheckIn.add(btnAmenities, 0, 0);
+//		gpUserCheckIn.add(btnFacility, 1, 0);
+//		gpUserCheckIn.add(btnDND, 0, 1);
+//		gpUserCheckIn.add(btnWakeUp, 1, 1);
+//		gpUserCheckIn.add(btnRating, 0, 2);
+//		gpUserCheckIn.add(btnLogOut, 1, 2);
+//		gpUserCheckIn.setAlignment(Pos.CENTER);
+		buttonContainer.getChildren().addAll(btnAmenities, btnFacility, btnRating);
+		buttonContainer2.getChildren().addAll(btnWakeUp, btnDND, btnLogOut);
+		
+		contentBox.setAlignment(Pos.CENTER);
+		contentBox.setSpacing(10);
+		
+		contentBox.getChildren().add(lbl);
+		contentBox.getChildren().add(buttonContainer);
+		contentBox.getChildren().add(buttonContainer2);	
+		
+		containerPane.setAlignment(Pos.CENTER);
+		containerPane.getChildren().add(contentBox);
+		
+		
+//		gpAdmin.add(btnRooms, 0, 0);
+//		gpAdmin.add(btnBookings, 0, 1);
+//		gpAdmin.add(btnAmenitiesAdmin, 0, 2);
+//		gpAdmin.add(btnFacilitiesAdmin, 0, 3);
+//		gpAdmin.add(btnUsers, 0, 4);
+//		gpAdmin.add(btnRatings, 0, 5);
+//		gpAdmin.add(btnLogOutA, 0, 6);
+//		gpAdmin.setAlignment(Pos.CENTER);
+		buttonContainerAdmin.getChildren().addAll(btnRooms, btnBookings, btnAmenitiesAdmin);
+		buttonContainer2Admin.getChildren().addAll(btnFacilitiesAdmin, btnUsers, btnRatings);
+		buttonContainer3Admin.getChildren().addAll(btnLogOutA);
+		
+		contentBoxAdmin.setAlignment(Pos.CENTER);
+		contentBoxAdmin.setSpacing(10);
+		
+		contentBoxAdmin.getChildren().add(lblA);
+		contentBoxAdmin.getChildren().add(buttonContainerAdmin);
+		contentBoxAdmin.getChildren().add(buttonContainer2Admin);
+		contentBoxAdmin.getChildren().add(buttonContainer3Admin);
+		
+		containerPaneAdmin.setAlignment(Pos.CENTER);
+		containerPaneAdmin.getChildren().add(contentBoxAdmin);
+		
+		
+//		containerPane.setStyle("-fx-background-color: lightgray; -fx-padding: 10px; -fx-alignment:center");
+		vbMain.getStyleClass().add("background");
+		lbl.getStyleClass().add("label");
+		
+		containerPane.getStyleClass().add("container-pane");
+		buttonContainer.getStyleClass().add("button-spacing");
+		buttonContainer2.getStyleClass().add("button-spacing");
+		contentBox.getStyleClass().add("button-spacing");
+		btnAmenities.getStyleClass().add("button");
+		btnFacility.getStyleClass().add("button");
+		btnDND.getStyleClass().add("button");
+		btnWakeUp.getStyleClass().add("button");
+		btnRating.getStyleClass().add("button");
+		btnLogOut.getStyleClass().add("button");
+		buttonContainer.setSpacing(10);
+		
+//		gpAdmin.add(btnRooms, 0, 0);
+//		gpAdmin.add(btnBookings, 0, 1);
+//		gpAdmin.add(btnAmenitiesAdmin, 0, 2);
+//		gpAdmin.add(btnFacilitiesAdmin, 0, 3);
+//		gpAdmin.add(btnUsers, 0, 4);
+//		gpAdmin.add(btnRatings, 0, 5);
+//		gpAdmin.add(btnLogOutA, 0, 6);
+//		gpAdmin.setAlignment(Pos.CENTER);
+		
+		containerPaneAdmin.getStyleClass().add("container-pane");
+		buttonContainerAdmin.getStyleClass().add("button-spacing");
+		buttonContainer2Admin.getStyleClass().add("button-spacing");
+		buttonContainer3Admin.getStyleClass().add("adminLogoutBtn");
+		btnRooms.getStyleClass().add("button-spacing");
+		btnBookings.getStyleClass().add("button-spacing");
+		btnAmenitiesAdmin.getStyleClass().add("button-spacing");
+		btnFacilitiesAdmin.getStyleClass().add("button-spacing");
+		btnUsers.getStyleClass().add("button-spacing");
+		btnRatings.getStyleClass().add("button-spacing");
+		btnLogOutA.getStyleClass().add("button-spacing");
+		buttonContainerAdmin.setSpacing(10);
+		
+		
+		
 
-		gpAdmin.add(btnRooms, 0, 0);
-		gpAdmin.add(btnBookings, 0, 1);
-		gpAdmin.add(btnAmenitiesAdmin, 0, 2);
-		gpAdmin.add(btnFacilitiesAdmin, 0, 3);
-		gpAdmin.add(btnUsers, 0, 4);
-		gpAdmin.add(btnRatings, 0, 5);
-		gpAdmin.add(btnLogOutA, 0, 6);
-		gpAdmin.setAlignment(Pos.CENTER);
 		
-		vbMain.getChildren().add(lbl);
-		vbMain.getChildren().add(gpUserCheckIn);
+//		vbMain.getChildren().add(lbl);
+//		vbMain.getChildren().add(containerPane);
 //		vbMain.getChildren().add(gpAdmin);
-		vbMain.setAlignment(Pos.CENTER);
-		mainScene = new Scene(vbMain,1000,500);
 		
+		vbMain.setAlignment(Pos.CENTER);
+		
+		
+		mainScene = new Scene(vbMain,1000,500);
+		System.out.println(getClass().getResource("/resources/MainScene.css").toExternalForm());
+		mainScene.getStylesheets().add(getClass().getResource("/resources/MainScene.css").toExternalForm());
 		
 		btnAmenities.setOnAction(e->{
 			stg.setScene(OrderAmenities.orderAmenitiesScene);
