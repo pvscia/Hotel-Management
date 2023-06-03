@@ -1,0 +1,37 @@
+.container-pane {
+    -fx-background-color: #202020;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+    -fx-max-width: 260px;
+    -fx-background-radius: 10px;
+    -fx-font-family: "Montserrat";
+}
+.button {
+    -fx-padding: 4px;
+    -fx-pref-width: 120px;
+    -fx-margin: 10px;
+}
+
+.button-spacing {
+    -fx-spacing: 10px;
+    -fx-hgrow: ALWAYS;
+}
+
+.background {
+	-fx-background-color: #3D484F;
+}
+
+.label {
+	-fx-text-fill: #FFFFFF;
+    -fx-font-family: "Montserrat";
+}
+
+.adminLogoutBtn{
+    -fx-padding: 4px;
+    -fx-pref-width: 120px;
+    -fx-margin: 10px;
+    -fx-alignment: center;
+    -fx-justify-content: center;
+}
+
+
