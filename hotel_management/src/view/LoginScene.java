@@ -94,9 +94,16 @@ public class LoginScene {
 						if(pfLoginPassword.getText().equals(rs.getString("password"))) {
 							 if(rs.getString("role").equals("admin")) {
 									Main.user = new Staff(rs.getString("id"), rs.getString("name"), rs.getString("gender"), rs.getString("username"), rs.getString("email"), rs.getString("password"));
-									MainScene.lbl.setText("Welcome, "+Main.user.getName()+"\nUserID: "+Main.user.getId());
-									MainScene.vbMain.getChildren().remove(1);
-									MainScene.vbMain.getChildren().add(MainScene.gpAdmin);
+									MainScene.lblA.setText("Welcome, "+Main.user.getName()+"\nUserID: "+Main.user.getId());
+									try {
+										MainScene.vbMain.getChildren().remove(0);
+									}
+									catch(Exception exc) {
+										System.out.println("nothing to remove");
+									}
+									
+									MainScene.vbMain.getChildren().add(MainScene.containerPaneAdmin);
+								  
 //									MainScene.gpUserCheckIn.setVisible(false);
 //									MainScene.gpAdmin.setVisible(true);
 								}else if(rs.getString("role").equals("user")) {
@@ -108,8 +115,14 @@ public class LoginScene {
 									if(rs.next()) {
 										Main.roomNo = rs.getInt("roomNumber");
 										MainScene.lbl.setText("Welcome, "+Main.user.getName()+"\nUserID: "+Main.user.getId());
-										MainScene.vbMain.getChildren().remove(1);
-										MainScene.vbMain.getChildren().add(MainScene.gpUserCheckIn);
+										try {
+											MainScene.vbMain.getChildren().remove(0);
+										}
+										catch(Exception excu) {
+											System.out.println("nothing to remove");
+										}
+										
+										MainScene.vbMain.getChildren().add(MainScene.containerPane);	
 //										MainScene.gpUserCheckIn.setVisible(true);
 //										MainScene.gpAdmin.setVisible(false);
 									}else {
