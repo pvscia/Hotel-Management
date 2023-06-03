@@ -1,0 +1,8 @@
+.background {
+    -fx-background-color:#3D484F;
+}
+
+.text {
+	-fx-text-fill: #FFFFFF;
+    -fx-font-family: "Montserrat";
+}
