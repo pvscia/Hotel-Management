@@ -1,6 +1,5 @@
 package view;
 
-
 import java.sql.ResultSet;
 
 import database.Connections;
@@ -18,12 +17,18 @@ import javafx.stage.Stage;
 import main.Main;
 import persons.Guest;
 import persons.Staff;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundPosition;
 
 public class LoginScene {
 	public static Scene loginScene;
 	GridPane gpLogin = new GridPane();
 	BorderPane bpLogin = new BorderPane();
-	HBox hbLogin =new HBox();
+	HBox hbLogin = new HBox();
 	Label lLoginEmail = new Label("Email");
 	Label lLoginPassword = new Label("Password");
 	TextField tfLoginEmail = new TextField();
@@ -41,6 +46,7 @@ public class LoginScene {
 		pfLoginPassword.setPromptText("Password");
 		
 		hbLogin.getChildren().addAll(btnLogin_login,btnLogin_register);
+		hbLogin.setSpacing(10);
 		
 		gpLogin.setVgap(5);
 		gpLogin.add(lLoginEmail, 0, 0);
@@ -55,8 +61,17 @@ public class LoginScene {
 		gpLogin.setAlignment(Pos.CENTER);
 		
 		bpLogin.setCenter(gpLogin);
+		Image image = new Image("bed.jpg");
+		BackgroundSize backgroundSize = new BackgroundSize(100.0, 100.0, true, true, true, true);
+		BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
+		bpLogin.setBackground(new Background(backgroundImage));
+		Background background = new Background(backgroundImage);
+		bpLogin.setBackground(background);
 		
 		loginScene = new Scene(bpLogin,1000,500);
+		
+		loginScene.getStylesheets().add(getClass().getResource("/stylesheet/mainss.css").toExternalForm());
+		
 		
 		 //LOGIN SCENE => REGISTER SCENE
 		 btnLogin_register.setOnAction(e->{
