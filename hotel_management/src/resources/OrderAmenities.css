@@ -1,0 +1,31 @@
+.background {
+	-fx-background-color: #3D484F;
+}
+
+.vbox{
+	-fx-spacing: 18px;
+}
+
+.hbox {
+    -fx-background-color: #202020;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+    -fx-max-width: 260px;
+    -fx-background-radius: 10px;
+    -fx-font-family: "Montserrat";
+}
+
+.text {
+	-fx-font-family: "Montserrat";
+	-fx-text-fill: #FFFFFF;
+}
+
+.button {
+    -fx-padding: 4px;
+    -fx-pref-width: 100px;
+    -fx-margin: 10px;
+}
+
+.buttonBox{
+	-fx-spacing:10px;
+}
