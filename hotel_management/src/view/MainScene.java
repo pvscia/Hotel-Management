@@ -136,13 +136,13 @@ public class MainScene {
 		buttonContainerAdmin.getStyleClass().add("button-spacing");
 		buttonContainer2Admin.getStyleClass().add("button-spacing");
 		buttonContainer3Admin.getStyleClass().add("adminLogoutBtn");
-		btnRooms.getStyleClass().add("button-spacing");
-		btnBookings.getStyleClass().add("button-spacing");
-		btnAmenitiesAdmin.getStyleClass().add("button-spacing");
-		btnFacilitiesAdmin.getStyleClass().add("button-spacing");
-		btnUsers.getStyleClass().add("button-spacing");
-		btnRatings.getStyleClass().add("button-spacing");
-		btnLogOutA.getStyleClass().add("button-spacing");
+		btnRooms.getStyleClass().add("button");
+		btnBookings.getStyleClass().add("button");
+		btnAmenitiesAdmin.getStyleClass().add("button");
+		btnFacilitiesAdmin.getStyleClass().add("button");
+		btnUsers.getStyleClass().add("button");
+		btnRatings.getStyleClass().add("button");
+		btnLogOutA.getStyleClass().add("button");
 		buttonContainerAdmin.setSpacing(10);
 		
 		
