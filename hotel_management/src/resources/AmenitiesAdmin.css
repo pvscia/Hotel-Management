@@ -1,0 +1,41 @@
+.amenityContainer{
+    -fx-spacing: 18px;
+    -fx-margin: 12px;
+    -fx-padding: 5px;
+}
+
+.amenity{
+	-fx-spacing: 2px;
+	-fx-margin: 3px;
+}
+
+.amenityRequest{
+    -fx-background-color: #3c3c3c;
+    -fx-background-radius:10px;
+    -fx-padding: 5px;
+}
+
+.background{
+    -fx-background-color: #3D484F;
+}
+
+.componentBackground{
+    -fx-background-color: #202020;
+    /* -fx-margin:30px; */
+    -fx-background-radius:10px;
+    -fx-max-height: 200px;
+    /* -fx-padding:10px; */
+}
+
+.buttonContainer{
+    -fx-spacing:20px;
+}
+
+.deliveryBox{
+    -fx-spacing: 5px;
+}
+
+.text {
+	-fx-font-family: "Montserrat";
+	-fx-text-fill: #FFFFFF;
+}
