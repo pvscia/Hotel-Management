@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import database.Connections;
 import database.Functions;
 import facilities.Inventory;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,11 +23,16 @@ public class AmenitiesAdmin {
 	public static Scene amenitiesAdminScene;
 	ScrollPane sp = new ScrollPane();
 	VBox vb = new VBox();
+	HBox hbox = new HBox();
+	HBox bg = new HBox();
 	Button back = new Button("Back");
 	ArrayList<Inventory> inven = new ArrayList<>();
+	ArrayList<HBox> hboxList = new ArrayList<>();
 	
+	VBox deliveryBox = new VBox();
 	
-	
+	// Will contain both deliveryBox and hbox
+//	VBox combiner = new VBox();
 	public AmenitiesAdmin(Stage stg) {
 		try {
 			Connections.openCon();
@@ -36,7 +43,21 @@ public class AmenitiesAdmin {
 				inven.add(new Inventory(rs.getString("name"), rs.getInt("stock")));
 			}
 			vb.getChildren().add(back);
+			
+			int counter = -1;
+			int listIndex = -1;
+			
 			for (Inventory i : inven) {
+				counter++;
+				
+				if(counter % 3 == 0) {
+					HBox hbox = new HBox();
+					hbox.getStyleClass().add("amenityContainer");
+					hboxList.add(hbox);
+					
+					listIndex++;
+				}
+				
 				Spinner<Integer> stock = new Spinner<>();
 				SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, Integer.MAX_VALUE, i.getStock());
 				stock.setValueFactory(svf);
@@ -50,7 +71,13 @@ public class AmenitiesAdmin {
 				temp.getChildren().add(stock);
 				temp.getChildren().add(btn);
 				
-				vb.getChildren().add(temp);
+				
+				temp.getStyleClass().add("amenity");
+				lbl.getStyleClass().add("text");
+				
+//				vb.getChildren().add(temp);
+				hboxList.get(listIndex).getChildren().add(temp);
+				
 				
 				btn.setOnAction(e->{
 					try {
@@ -76,20 +103,35 @@ public class AmenitiesAdmin {
 					}
 				
 				});
+				
+				
+			}
+			
+			for(int i = 0; i <= listIndex; i++) {
+				vb.getChildren().add(hboxList.get(i));
 			}
 			query = "SELECT * FROM amenities_req";
 			Connections.state = Connections.connect.prepareStatement(query);
 			rs = Connections.state.executeQuery();
 			while(rs.next()) {
+				VBox tempVBox = new VBox();
 				String name = rs.getString("name");
 				int no =rs.getInt("roomNumber");
 				String temp = "Room number " + rs.getInt("roomNumber") + " requests " + rs.getInt("qty") + " " + name;
 				HBox hb = new HBox();
-				hb.getChildren().add(new Label(temp));
+				
+				Label request = new Label(temp);
+				request.getStyleClass().add("text");
+				hb.getChildren().add(request);
 				Button deliver = new Button("Deliver");
 				hb.getChildren().add(deliver);
-				vb.getChildren().add(hb);
+//				vb.getChildren().add(hb);
 				hb.setSpacing(5);
+				
+				tempVBox.getChildren().add(hb);
+				tempVBox.getStyleClass().add("amenityRequest");
+				hb.setAlignment(Pos.CENTER);
+				deliveryBox.getChildren().add(tempVBox);
 				
 				deliver.setOnAction(e->{
 					try {
@@ -117,15 +159,31 @@ public class AmenitiesAdmin {
 
 
 			}
+			deliveryBox.getStyleClass().add("deliveryBox");
+			vb.getChildren().add(deliveryBox);
 			Connections.closeCon();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		
 		vb.setSpacing(10);
-		sp.setContent(vb);
-		amenitiesAdminScene = new Scene(sp,1000,500);
+		vb.setPadding(new Insets(10));
 		
+		hbox.getChildren().add(vb);
+		hbox.setAlignment(Pos.CENTER);
+		
+		deliveryBox.setAlignment(Pos.CENTER);
+		
+//		combiner.getChildren().addAll(hbox, deliveryBox);
+//		combiner.setAlignment(Pos.CENTER);
+		
+		
+		hbox.getStyleClass().add("background");
+		vb.getStyleClass().add("componentBackground");
+		
+		
+		amenitiesAdminScene = new Scene(hbox,1000,500);
+		amenitiesAdminScene.getStylesheets().add(getClass().getResource("/resources/AmenitiesAdmin.css").toExternalForm());
 		back.setOnAction(e->{
 			stg.setScene(MainScene.mainScene);
 			stg.setTitle("Main Menu");
