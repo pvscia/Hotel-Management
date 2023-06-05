@@ -1,0 +1,9 @@
+.background{
+    -fx-background-color: #3D484F;
+    -fx-margin: 10px;
+    -fx-padding: 20px;
+}
+
+.label{
+	-fx-text-fill: white;
+}
