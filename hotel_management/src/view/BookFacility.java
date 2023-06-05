@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import main.Main;
 
@@ -29,8 +30,13 @@ public class BookFacility {
 	}
 	
 	public BookFacility(Stage stg) {
+		
 		vb.getChildren().add(btnBack);
 		vb.getChildren().add(new Label("Currently Booked Facilities : "));
+		vb.setAlignment(Pos.CENTER);
+		
+		vb.getStyleClass().add("background");
+		
 		try {
 			Connections.openCon();
 			String qry = "SELECT * FROM facility_book WHERE roomNo = "+Main.roomNo;
@@ -49,7 +55,9 @@ public class BookFacility {
 		people.setValueFactory(svf);
 		people.setEditable(true);
 		vb.getChildren().addAll(facilities,people,btnSubmit);
+		
 		bookFacilityScene = new Scene(vb,1000,500);
+		bookFacilityScene.getStylesheets().add(getClass().getResource("/resources/BookFacility.css").toExternalForm());
 		
 		btnSubmit.setOnAction(e->{
 			if(facilities.getValue()==null) {
