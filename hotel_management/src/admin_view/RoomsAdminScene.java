@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import database.Connections;
 import database.Functions;
+import finance.Booking;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,11 +14,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import main.Main;
 import rooms.Room;
@@ -61,21 +66,41 @@ public class RoomsAdminScene {
 	
 	public RoomsAdminScene(Stage stg) {
 		load();
+		rooms.setMinWidth(700);
+		
 		sp.setContent(rooms);
+		sp.setFitToWidth(true);
+		sp.setMaxWidth(750);
+		
 		vb.getChildren().add(back);
 		vb.getChildren().add(sp);
+		vb.setAlignment(Pos.CENTER);
+		
 		roomNo.setValueFactory(svf);
 		roomNo.setEditable(true);
+		
 		hb.getChildren().addAll(lblRoom,roomNo,clean,wakeUp);
+		hb.setAlignment(Pos.CENTER);
+		
 		vb.getChildren().add(hb);
+		vb.setAlignment(Pos.CENTER);
 		
 		vb.getChildren().addAll(checkIn,hbCheckIn);
+		vb.setAlignment(Pos.CENTER);
+		vb.setSpacing(5);
+		
+		vb.getStyleClass().add("background");
+		
 		ciRoomNo.setValueFactory(ciSVF);
 		ciRoomNo.setEditable(true);
-		hbCheckIn.getChildren().addAll(lblGuest,tfGuest,lblRoomNo,ciRoomNo,btnCheckIn);
 		
-
+		hbCheckIn.getChildren().addAll(lblGuest,tfGuest,lblRoomNo,ciRoomNo,btnCheckIn);
+		hbCheckIn.setAlignment(Pos.CENTER);
+		hbCheckIn.setSpacing(2);
+		
 		adminRoomsScene = new Scene(vb,1000,500);
+		adminRoomsScene.getStylesheets().add(getClass().getResource("/resources/ReservationsAdmin.css").toExternalForm());
+		
 		back.setOnAction(e->{
 			stg.setScene(MainScene.mainScene);
 			stg.setTitle("Main Menu");
@@ -204,6 +229,7 @@ public class RoomsAdminScene {
 		}
 		
 		rooms.setItems(olRooms);
+		
 		roomNumber.setCellValueFactory(olRooms -> new SimpleStringProperty(Integer.toString(olRooms.getValue().getRoomNumber())));
 		bedType.setCellValueFactory(olRooms -> new SimpleStringProperty(olRooms.getValue().getBedType()));
 		roomType.setCellValueFactory(olRooms -> new SimpleStringProperty(olRooms.getValue().getRoomType()));
@@ -217,6 +243,122 @@ public class RoomsAdminScene {
 		name.setCellValueFactory(olRooms -> new SimpleStringProperty(olRooms.getValue().getGuest()));
 		
 		rooms.getColumns().setAll(roomNumber,bedType,roomType,roomView,roomSize,roomCapacity,roomPrice,dnd,wakeUpCall,availability,name);
+		rooms.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
+		rooms.setPrefWidth(Region.USE_COMPUTED_SIZE);
+		rooms.setMaxWidth(Double.MAX_VALUE);
 		
+		lblRoom.setStyle("-fx-text-fill: white; -fx-font-family: \"Montserrat\";");
+		lblGuest.setStyle("-fx-text-fill: white; -fx-font-family: \"Montserrat\";");
+		lblRoomNo.setStyle("-fx-text-fill: white; -fx-font-family: \"Montserrat\";");
+		checkIn.setStyle("-fx-text-fill: white; -fx-font-family: \"Montserrat\";");
+		
+		roomNumber.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+
+		bedType.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+
+		roomType.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+		
+		roomView.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+		
+		roomNumber.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+
+		roomSize.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+
+		roomCapacity.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+		
+		roomPrice.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+
+		dnd.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+
+		wakeUpCall.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+		
+		availability.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+
+		name.setCellFactory(column -> new TableCell<Room, String>() {
+		    @Override
+		    protected void updateItem(String item, boolean empty) {
+		        super.updateItem(item, empty);
+		        setText(item);
+		        setTextFill(Color.WHITE); // Set text color to white
+		    }
+		});
+
 	}
 }
