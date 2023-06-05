@@ -157,7 +157,7 @@ public class MainScene {
 		
 		
 		mainScene = new Scene(vbMain,1000,500);
-		System.out.println(getClass().getResource("/resources/MainScene.css").toExternalForm());
+//		System.out.println(getClass().getResource("/resources/MainScene.css").toExternalForm());
 		mainScene.getStylesheets().add(getClass().getResource("/resources/MainScene.css").toExternalForm());
 		
 		btnAmenities.setOnAction(e->{

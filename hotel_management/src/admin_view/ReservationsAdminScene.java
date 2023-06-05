@@ -30,10 +30,7 @@ public class ReservationsAdminScene {
 	ObservableList<Booking> bookings;
 	VBox vb = new VBox();
 	Label lblGuestID = new Label("Guest ID");
-	Label lblRoomNumber = new Label("Room Number");
 	TextField tfGuestID = new TextField();
-	Spinner<Integer> roomNumber = new Spinner<>();
-	SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(101,310);
 	Button btnCheckOut = new Button("Check Out");
 	
 	TableColumn<Booking,String> id = new TableColumn<>("Guest ID: ");
@@ -66,10 +63,8 @@ public class ReservationsAdminScene {
 	
 	public ReservationsAdminScene(Stage stg) {
 		load();
-		roomNumber.setValueFactory(svf);
-		roomNumber.setEditable(true);
 		sp.setContent(tvBookings);
-		vb.getChildren().addAll(back,sp,lblGuestID,tfGuestID,lblRoomNumber,roomNumber,btnCheckOut);
+		vb.getChildren().addAll(back,sp,lblGuestID,tfGuestID,btnCheckOut);
 		adminReservationScene = new Scene(vb,1000,500);
 		
 		back.setOnAction(e->{
@@ -87,24 +82,25 @@ public class ReservationsAdminScene {
 					Connections.state = Connections.connect.prepareStatement(query);
 					ResultSet rs = Connections.state.executeQuery();
 					if(rs.next()) {
-						query = "SELECT guestID, b.roomNumber, roomPrice,  CURRENT_DATE - checkIn as days FROM booking b JOIN room r ON r.roomNumber = b.roomNumber WHERE guestID = '"+tfGuestID.getText()+"' AND b.roomNumber = " + roomNumber.getValue();
+						query = "SELECT guestID, b.roomNumber, roomPrice,  CURRENT_DATE - checkIn as days FROM booking b JOIN room r ON r.roomNumber = b.roomNumber WHERE guestID = '"+tfGuestID.getText()+"'";
 						Connections.state = Connections.connect.prepareStatement(query);
 						rs = Connections.state.executeQuery();
 						if(rs.next()) {
 							boolean f = Functions.confirmUser("Checking out this guest?");
 							if(f) {
-								Functions.informUser("Total charge : \n"+rs.getInt("roomPrice")+" * "+rs.getInt("days")+" days = "+ (rs.getInt("roomPrice")*rs.getInt("days")));
+								Functions.informUser("Total charge : \n"+rs.getInt("roomPrice")+" * "+(rs.getInt("days")<1 ? 1 : rs.getInt("days"))+" days = "+ (rs.getInt("roomPrice")*(rs.getInt("days")<1 ? 1 : rs.getInt("days"))));
 								
-								query = "DELETE FROM booking WHERE guestID = '"+tfGuestID.getText()+"' AND roomNumber = " + roomNumber.getValue();
+								query = "UPDATE room SET availability = 'Need Cleaning', wake_up_call = false, do_not_disturb = false WHERE roomNumber = " + rs.getInt("roomNumber");
+								Connections.state = Connections.connect.prepareStatement(query);
+								Connections.state.executeUpdate();
+
+								query = "DELETE FROM booking WHERE guestID = '"+tfGuestID.getText()+"'";
 								Connections.state = Connections.connect.prepareStatement(query);
 								Connections.state.executeUpdate();
 								
-								query = "UPDATE room SET availability = 'Need Cleaning', wake_up_call = false, do_not_disturb = false WHERE roomNumber = " + roomNumber.getValue();
-								Connections.state = Connections.connect.prepareStatement(query);
-								Connections.state.executeUpdate();
+								stg.setScene(MainScene.mainScene);
+								stg.setTitle("Main Menu");
 							}
-						}else{
-							Functions.alertUser("Guest is not this room");
 						}
 					}else {
 						Functions.alertUser("Guest is not booking any room");

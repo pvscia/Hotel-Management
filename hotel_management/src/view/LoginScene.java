@@ -70,7 +70,7 @@ public class LoginScene {
 		
 		loginScene = new Scene(bpLogin,1000,500);
 		
-		loginScene.getStylesheets().add(getClass().getResource("/stylesheet/mainss.css").toExternalForm());
+		loginScene.getStylesheets().add(getClass().getResource("/resources/mainss.css").toExternalForm());
 		
 		
 		 //LOGIN SCENE => REGISTER SCENE
