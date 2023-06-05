@@ -86,8 +86,18 @@ public class RegisterScene {
 
 		bpRegister.setCenter(vbRegister);
 		bpRegister.setPadding(new Insets(30));
-		registerScene = new Scene(bpRegister,1000,500);
 		
+		lRegisterName.getStyleClass().add("text");
+		lRegisterUsername.getStyleClass().add("text");
+		lRegisterPassword.getStyleClass().add("text");
+		lRegisterConfirmPassword.getStyleClass().add("text");
+		lRegisterEmail.getStyleClass().add("text");
+		lRegisterGender.getStyleClass().add("text");
+		lRegisterTerms.getStyleClass().add("text");
+		bpRegister.getStyleClass().add("background");
+		
+		registerScene = new Scene(bpRegister,1000,500);
+		registerScene.getStylesheets().add(getClass().getResource("/resources/RegisterScene.css").toExternalForm());
 		
 		//REGISTER SCENE => LOGIN SCENE
 		 btnRegister_login.setOnAction(e->{

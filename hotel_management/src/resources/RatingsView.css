@@ -1,0 +1,21 @@
+.table-row-cell:odd {
+    -fx-background-color: #1e1e1e; /* Set the background color for odd rows */
+    -fx-font-family: "Montserrat";
+    -fx-text-fill: #FFFFFF;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #202020; /* Set the background color for even rows */
+    -fx-font-family: "Montserrat";
+    -fx-text-fill: #FFFFFF;
+}
+
+.background{
+    -fx-background-color: #3D484F;
+    -fx-margin: 10px;
+    -fx-padding: 20px;
+}
+
+.table-view{
+    -fx-border-color: #111111;
+}
