@@ -42,7 +42,6 @@ public class RatingsView {
 			Connections.state = Connections.connect.prepareStatement(query);
 			ResultSet rs = Connections.state.executeQuery();
 			while(rs.next()) {
-				System.out.println(rs.getInt("roomNumber"));
 				ratings.add(new Rating(rs.getInt("roomNumber"), rs.getInt("rating"), rs.getString("complaint"), rs.getDate("date")));
 			}
 			Connections.closeCon();

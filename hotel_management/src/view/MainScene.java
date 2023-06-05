@@ -76,6 +76,7 @@ public class MainScene {
 		});
 		
 		btnAmenitiesAdmin.setOnAction(e->{
+			new AmenitiesAdmin(stg);
 			stg.setScene(AmenitiesAdmin.amenitiesAdminScene);
 			stg.setTitle("Amenities");
 		});
@@ -96,6 +97,7 @@ public class MainScene {
 		});
 		
 		btnFacilitiesAdmin.setOnAction(e->{
+			new FacilityAdmin(stg);
 			stg.setScene(FacilityAdmin.facilityAdminScene);
 			stg.setTitle("Facility");
 		});
@@ -174,6 +176,7 @@ public class MainScene {
 		});
 		
 		btnRatings.setOnAction(e->{
+			new RatingsView(stg);
 			stg.setScene(RatingsView.ratingsScene);
 			stg.setTitle("Ratings");
 		});	}
