@@ -11,6 +11,8 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+import javafx.geometry.Pos;
 import main.Main;
 
 public class AddRatingScene {
@@ -28,14 +30,25 @@ public class AddRatingScene {
 		rating.setValue(1);
 		tfComplaint.clear();
 	}
+	
 	public AddRatingScene(Stage stg) {
 		vb.getChildren().addAll(back,lblComplaint,tfComplaint,lblRating,rating,submit);
+		vb.setAlignment(Pos.CENTER);
+		vb.setSpacing(5);
+		
+		vb.getStyleClass().add("background");
+		
 		tfComplaint.setPromptText("Type if there is any complaint");
+		tfComplaint.setMaxWidth(300);
+		
+		rating.setMaxWidth(300);
+		
 		rating.setShowTickLabels(true);
 		rating.setShowTickMarks(true);
 		rating.setMajorTickUnit(1);
 		
 		addRatingScene = new Scene(vb,1000,500);
+		addRatingScene.getStylesheets().add(getClass().getResource("/resources/AddRating.css").toExternalForm());
 		
 		back.setOnAction(e->{
 			cleanFields();
