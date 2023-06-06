@@ -37,7 +37,7 @@ public class OrderAmenities {
 	
 	void clearFields() {
 		qty.getValueFactory().setValue(1);
-		cbAmenities.valueProperty().set(null);
+		cbAmenities.setValue("Select Amenities");
 	}
 	
 	@SuppressWarnings("static-access")
@@ -45,6 +45,7 @@ public class OrderAmenities {
 		cbAmenities.getItems().addAll("Shampoo","Soap","Toothbrush","Towel","Extra Bed","Tissue","Slippers");
 		qty.setValueFactory(svfQty);
 		qty.setEditable(true);
+		clearFields();
 		
 		VBox amenity = new VBox(lblAmenities, cbAmenities);
 		VBox quantity = new VBox(lblQty, qty);
@@ -89,7 +90,7 @@ public class OrderAmenities {
 		});
 		
 		submit.setOnAction(e->{
-			if(cbAmenities.getSelectionModel().isEmpty()) {
+			if(cbAmenities.getValue().equals("Select Amenities")) {
 				Functions.alertUser("Please choose amenities you want to request");
 			}else {
 				try {

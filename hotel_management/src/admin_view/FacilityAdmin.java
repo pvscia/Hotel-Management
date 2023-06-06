@@ -70,14 +70,17 @@ public class FacilityAdmin {
 				Button btn = new Button("Submit Changes");
 				VBox temp = new VBox();
 				temp.getChildren().add(lbl);
+				temp.setSpacing(7);
 				
 				Label lblStatus = new Label("Status:");
-				Label lblCapacity = new Label("Capacity");
-				temp.getChildren().add(lblStatus);
-				temp.getChildren().add(cb);
-				temp.getChildren().add(lblCapacity);
-				temp.getChildren().add(capacity);
-				temp.getChildren().add(btn);
+				Label lblCapacity = new Label("Capacity:");
+				VBox temp_1 = new VBox();
+				VBox temp_2 = new VBox();
+				temp_1.getChildren().add(lblStatus);
+				temp_1.getChildren().add(cb);
+				temp_2.getChildren().add(lblCapacity);
+				temp_2.getChildren().add(capacity);
+				temp.getChildren().addAll(temp_1,temp_2,btn);
 				
 				temp.getStyleClass().add("facility");
 				lbl.getStyleClass().add("text");

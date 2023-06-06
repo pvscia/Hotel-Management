@@ -94,6 +94,8 @@ public class RegisterScene {
 		lRegisterEmail.getStyleClass().add("text");
 		lRegisterGender.getStyleClass().add("text");
 		lRegisterTerms.getStyleClass().add("text");
+		rbRegisterFemale.getStyleClass().add("text");
+		rbRegisterMale.getStyleClass().add("text");
 		bpRegister.getStyleClass().add("background");
 		
 		registerScene = new Scene(bpRegister,1000,500);

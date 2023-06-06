@@ -19,3 +19,61 @@
 .button:hover {    
     -fx-background-color: #3D3F4F;
 }
+
+* {
+	-fx-primary-color: #4B6EAF;
+    
+	-fx-focus-color: -fx-primary-color;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+	-fx-background-color: none;
+	-fx-background-radius: 0;
+}
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+	-fx-background-color: -fx-primary-color;
+}
+
+.spinner .increment-arrow-button .increment-arrow,
+.spinner .decrement-arrow-button .decrement-arrow {
+	-fx-background-color: white;
+}
+
+.spinner {
+		-fx-background-color: none;
+	
+}
+
+.text-field {
+    -fx-background-color: none ;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: white;
+    -fx-background-radius: 0 ;
+    -fx-text-fill: white;
+    
+}
+
+.text-field:focused{
+	-fx-border-width: 0 0 2 0;
+	
+}
+
+.combo-box-base {
+    -fx-background-color: none;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: white;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #3D484F;
+    -fx-text-fill: white;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+

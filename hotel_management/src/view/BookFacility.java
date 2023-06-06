@@ -25,7 +25,7 @@ public class BookFacility {
 	Button btnSubmit = new Button("Submit");
 	
 	void clearFields() {
-		facilities.setValue(null);
+		facilities.setValue("Select Facility");
 		people.getValueFactory().setValue(1);
 	}
 	
@@ -63,7 +63,7 @@ public class BookFacility {
 		bookFacilityScene.getStylesheets().add(getClass().getResource("/resources/BookFacility.css").toExternalForm());
 		
 		btnSubmit.setOnAction(e->{
-			if(facilities.getValue()==null) {
+			if(facilities.getValue().equals("Select Facility")) {
 				Functions.alertUser("Select facility you want to book");
 			}else {
 				try {
@@ -129,6 +129,7 @@ public class BookFacility {
 			
 		});
 		
+		clearFields();
 		btnBack.setOnAction(e->{
 			clearFields();
 			stg.setScene(MainScene.mainScene);

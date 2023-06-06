@@ -23,3 +23,47 @@
 .button:hover {    
     -fx-background-color: #3D3F4F;
 }
+
+.text-field {
+    -fx-background-color: none ;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: white;
+    -fx-background-radius: 0 ;
+    -fx-text-fill: white;
+    
+}
+
+.text-field:focused{
+	    -fx-border-width: 0 0 2 0;
+	
+}
+
+
+.slider{
+	-track-color: -fx-control-inner-background;
+}
+.slider .thumb {
+    -fx-shape: "M 0 0 L -0.4 -0.9 L -1.2 -0.9 L -0.5 -1.4 L -0.9 -2.1 L 0 -1.6 L 0.9 -2.1 L 0.5 -1.4 L 1.2 -0.9 L 0.4 -0.9 Z";
+    -fx-background-color: yellow;
+    -fx-border-color :grey;
+    -fx-scale-x:1.5;
+    -fx-scale-y:1.5;
+}
+
+.slider .axis{
+	-fx-tick-label-fill : white;
+}
+
+
+.slider .track{
+	-fx-background-color: linear-gradient(to right, #f0eaa8 50%, #3D484F 50%);
+    -fx-background-insets: 0 0 -1 0, 0, 1;
+    -fx-background-radius: 0.25em, 0.25em, 0.166667em; /* 3 3 2 */
+    -fx-padding: 0.25em;
+}
+
+
+
+
+
+

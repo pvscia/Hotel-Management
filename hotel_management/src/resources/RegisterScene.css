@@ -6,3 +6,29 @@
 	-fx-text-fill: #FFFFFF;
     -fx-font-family: "Montserrat";
 }
+
+.button {
+	-fx-pref-width: 120px;
+	-fx-padding: 5px;
+
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #53566C;
+}
+
+.button:hover {    
+    -fx-background-color: #3D3F4F;
+}
+
+.text-field {
+    -fx-background-color: none ;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: white;
+    -fx-background-radius: 0 ;
+    -fx-text-fill: white;
+    
+}
+
+.text-field:focused{
+	    -fx-border-width: 0 0 2 0;
+	
+}

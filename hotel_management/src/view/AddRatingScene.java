@@ -9,9 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import main.Main;
 
@@ -52,6 +56,17 @@ public class AddRatingScene {
 		
 		addRatingScene = new Scene(vb,1000,500);
 		addRatingScene.getStylesheets().add(getClass().getResource("/resources/AddRating.css").toExternalForm());
+		rating.valueProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
+				Pane sp = (Pane) rating.lookup(".track");
+				String style = "-fx-background-color: linear-gradient(to right, #f0eaa8 "+((arg2.doubleValue()-1)*25)+"%, #3D484F "+((arg2.doubleValue()-1)*25)+"%);";
+				sp.setStyle(style);
+			}
+			
+		});;
+		
 		
 		back.setOnAction(e->{
 			cleanFields();
