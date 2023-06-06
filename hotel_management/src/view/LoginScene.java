@@ -61,7 +61,8 @@ public class LoginScene {
 		gpLogin.setAlignment(Pos.CENTER);
 		
 		bpLogin.setCenter(gpLogin);
-		Image image = new Image("bed.jpg");
+//		System.out.println(getClass().getResource("/resources/bed.jpg").toExternalForm());
+		Image image = new Image(getClass().getResource("/resources/bed.jpg").toExternalForm());
 		BackgroundSize backgroundSize = new BackgroundSize(100.0, 100.0, true, true, true, true);
 		BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
 		bpLogin.setBackground(new Background(backgroundImage));

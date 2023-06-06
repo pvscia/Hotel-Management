@@ -1,0 +1,16 @@
+.grid-pane {
+    -fx-background-color: red;
+}
+.label{
+    -fx-background-color: lightblue;
+    -fx-text-fill:red;
+}
+
+.text-field {
+    -fx-background-color: lightblue;
+    -fx-text-fill: white;
+}
+
+#login-grid-pane {
+    -fx-background-color: #8fbc8f;
+}

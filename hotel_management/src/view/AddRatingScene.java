@@ -47,6 +47,9 @@ public class AddRatingScene {
 		rating.setShowTickMarks(true);
 		rating.setMajorTickUnit(1);
 		
+		back.getStyleClass().add("submit");
+		submit.getStyleClass().add("submit");
+		
 		addRatingScene = new Scene(vb,1000,500);
 		addRatingScene.getStylesheets().add(getClass().getResource("/resources/AddRating.css").toExternalForm());
 		

@@ -56,6 +56,9 @@ public class BookFacility {
 		people.setEditable(true);
 		vb.getChildren().addAll(facilities,people,btnSubmit);
 		
+		btnBack.getStyleClass().add("button");
+		btnSubmit.getStyleClass().add("button");
+		
 		bookFacilityScene = new Scene(vb,1000,500);
 		bookFacilityScene.getStylesheets().add(getClass().getResource("/resources/BookFacility.css").toExternalForm());
 		
