@@ -98,13 +98,14 @@ public class UsersView {
 	
 	public UsersView(Stage stg) {
 		load();
-		sp.setContent(tvUser);
-		tableContainer.getChildren().add(sp);
+//		sp.setContent(tvUser);
+		tableContainer.getChildren().add(tvUser);
 		tableContainer.setAlignment(Pos.CENTER);
 		
 		vb.getChildren().addAll(tableContainer,back);
 		vb.setAlignment(Pos.CENTER);
 		
+		back.getStyleClass().add("button");
 		vb.getStyleClass().add("background");
 		
 		usersViewScene = new Scene(vb,1000,500);

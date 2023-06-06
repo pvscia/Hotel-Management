@@ -64,23 +64,32 @@ public class RoomsAdminScene {
 	TableColumn<Room,String> availability = new TableColumn<>("Status");
 	TableColumn<Room,String> name = new TableColumn<>("Guest Name");
 	
+	
+	
 	public RoomsAdminScene(Stage stg) {
 		load();
 		rooms.setMinWidth(700);
 		
-		sp.setContent(rooms);
-		sp.setFitToWidth(true);
-		sp.setMaxWidth(750);
+		wakeUp.getStyleClass().add("button");
+		clean.getStyleClass().add("button");
+		back.getStyleClass().add("button");
+		
+//		sp.setContent(rooms);
+//		sp.setFitToWidth(true);
+//		sp.setMaxWidth(750);
 		
 		vb.getChildren().add(back);
-		vb.getChildren().add(sp);
+		vb.getChildren().add(rooms);
 		vb.setAlignment(Pos.CENTER);
 		
 		roomNo.setValueFactory(svf);
 		roomNo.setEditable(true);
-		
-		hb.getChildren().addAll(lblRoom,roomNo,clean,wakeUp);
+		HBox hb1 = new HBox();
+		hb1.getChildren().addAll(clean, wakeUp);
+		hb1.getStyleClass().add("buttonBox");
+		hb.getChildren().addAll(lblRoom,roomNo, hb1);
 		hb.setAlignment(Pos.CENTER);
+		hb.getStyleClass().add("buttonBox");
 		
 		vb.getChildren().add(hb);
 		vb.setAlignment(Pos.CENTER);
@@ -94,12 +103,24 @@ public class RoomsAdminScene {
 		ciRoomNo.setValueFactory(ciSVF);
 		ciRoomNo.setEditable(true);
 		
-		hbCheckIn.getChildren().addAll(lblGuest,tfGuest,lblRoomNo,ciRoomNo,btnCheckIn);
+		
+		
+		btnCheckIn.getStyleClass().add("button");
+		HBox hb2 = new HBox();
+		hb2.getChildren().addAll(lblGuest, tfGuest);
+		HBox hb3 = new HBox();
+		hb3.getChildren().addAll(lblRoomNo, ciRoomNo);
+		HBox hb4 = new HBox();
+		hb4.getChildren().add(btnCheckIn);
+		
+		hbCheckIn.getStyleClass().add("buttonBox");
+		hbCheckIn.getChildren().addAll(hb2, hb3, hb4);
 		hbCheckIn.setAlignment(Pos.CENTER);
 		hbCheckIn.setSpacing(2);
 		
+
 		adminRoomsScene = new Scene(vb,1000,500);
-		adminRoomsScene.getStylesheets().add(getClass().getResource("/resources/ReservationsAdmin.css").toExternalForm());
+		adminRoomsScene.getStylesheets().add(getClass().getResource("/resources/RoomsAdmin.css").toExternalForm());
 		
 		back.setOnAction(e->{
 			stg.setScene(MainScene.mainScene);

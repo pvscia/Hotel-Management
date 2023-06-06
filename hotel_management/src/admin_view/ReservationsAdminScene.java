@@ -106,10 +106,10 @@ public class ReservationsAdminScene {
 	
 	public ReservationsAdminScene(Stage stg) {
 		load();
-		sp.setContent(tvBookings);
-		sp.setFitToWidth(true);
+//		sp.setContent(tvBookings);
+//		sp.setFitToWidth(true);
 		
-		hb.getChildren().add(sp);
+		hb.getChildren().add(tvBookings);
 		hb.setAlignment(Pos.CENTER);
 		
 		vb.getChildren().addAll(hb,back,lblGuestID,tfGuestID,btnCheckOut);
@@ -119,7 +119,8 @@ public class ReservationsAdminScene {
 		vb.getStyleClass().add("background");
 		
 		tfGuestID.prefWidthProperty().bind(tvBookings.widthProperty()); 
-		
+		back.getStyleClass().add("button");
+		btnCheckOut.getStyleClass().add("button");
 		adminReservationScene = new Scene(vb,1000,500);
 		adminReservationScene.getStylesheets().add(getClass().getResource("/resources/ReservationsAdmin.css").toExternalForm());
 		

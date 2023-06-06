@@ -116,6 +116,7 @@ public class RatingsView {
 		vb.getChildren().addAll(hb,back);
 		vb.setAlignment(Pos.CENTER);
 		
+		back.getStyleClass().add("button");
 		vb.getStyleClass().add("background");
 		
 		
