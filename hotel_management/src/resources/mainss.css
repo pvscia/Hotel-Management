@@ -4,6 +4,8 @@
     -fx-text-fill: white;
     -fx-padding: 5;
     -fx-margin: 30px;
+
+    -fx-pref-width: 120px;
 }
 
 .label {

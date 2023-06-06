@@ -21,6 +21,15 @@
     /* -fx-padding:10px; */
 }
 
+.button {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #53566C;
+}
+
+.button:hover {    
+    -fx-background-color: #3D3F4F;
+}
+
 .buttonContainer{
     -fx-spacing:20px;
 }

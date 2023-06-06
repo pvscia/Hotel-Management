@@ -23,3 +23,24 @@
 .label {
     -fx-text-fill: white;
 }
+
+.button {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #53566C;
+}
+
+.button:hover {    
+    -fx-background-color: #3D3F4F;
+}
+
+.buttonBox{
+	-fx-spacing: 10px;
+}
+
+/* .table-view .column-header .label {
+    -fx-background-color: #30323F;
+} */
+
+.table-view{
+    -fx-border-color: #111111;
+}

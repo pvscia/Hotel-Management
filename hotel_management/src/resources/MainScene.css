@@ -10,6 +10,12 @@
     -fx-padding: 4px;
     -fx-pref-width: 120px;
     -fx-margin: 10px;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #53566C;
+}
+
+.button:hover {    
+    -fx-background-color: #3D3F4F;
 }
 
 .button-spacing {
