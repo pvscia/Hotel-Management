@@ -31,6 +31,15 @@
     -fx-spacing:20px;
 }
 
+.button {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #53566C;
+}
+
+.button:hover {    
+    -fx-background-color: #3D3F4F;
+}
+
 .deliveryBox{
     -fx-spacing: 5px;
 }
