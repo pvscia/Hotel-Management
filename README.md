@@ -20,5 +20,9 @@ Hotel Admins:
 * Update and keep track of the status of hotel facilities, such as the gym or spa.
 * View user ratings thus far.
 
+## How to install and use this project
+
+1. Clone this project
+2. Create a MySQL database named hotel_management using the XAMPP Control Panel following the format of the following database:
 
 
