@@ -67,15 +67,23 @@ Say that I am a guest checked-in at a hotel and would like an extra bed in my ro
    <img width="752" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/7a15af40-d8be-48cb-af70-4f3bff7ace6d">
    
    If the credentials are correct, the app will direct the guest to the guest home page like so: <br />
+   
+   
    <img width="751" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/b40dd527-64d4-4337-b327-eefb24054678">
 
    Since in this case the guest would like to order additional amenities, they would go to the Order Amenities page by clicking on it, redirecting them to this page: <br />
+   
+   
    <img width="747" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/e878fe0f-6d13-4e90-8a4d-0302b361824c">
     
    Here, guests can choose from the available amenities and their quantity. Since the guest would like to order one additional extra bed, they would select Extra Bed from the drop down menu of available amenities and set the quantity to    1 like so: <br />
+   
+   
    <img width="748" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/34461b9c-3ac7-4db3-a1f7-b80b22218c78">
 
    Once they press submit, a prompt will show that their order has been placed, and the hotel admins will be notified in return, as the database has been updated. <br />
+   
+   
    <img width="746" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/087d1d85-f92e-42c3-80d4-9aea0bcda380"> <br />
    <img width="158" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/659b4a7a-2472-43e3-bfb3-3e54711fdd27"> <br />
     
