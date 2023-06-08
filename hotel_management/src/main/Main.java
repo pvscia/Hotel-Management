@@ -10,6 +10,7 @@ import admin_view.RoomsAdminScene;
 import admin_view.UsersView;
 import database.Functions;
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import persons.Person;
 import view.AddRatingScene;
@@ -42,6 +43,8 @@ public class Main extends Application {
 		new RatingsView(stg);
 		stg.setTitle("Login");
 		stg.setScene(LoginScene.loginScene);
+		Image img = new Image(getClass().getResource("/resources/logo.png").toExternalForm());
+		stg.getIcons().add(img);
 		stg.show();
 
 	}
