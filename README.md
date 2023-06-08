@@ -24,7 +24,7 @@ Hotel Admins:
     
 1. Clone this project
 2. Create a MySQL database named hotel_management using the XAMPP Control Panel following the format of the following database:
-   Tables:
+   Tables: <br />
    <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/3044f97d-69af-40da-8670-48a2976fd230">
    
    With each table containing the following columns:
@@ -32,22 +32,22 @@ Hotel Admins:
    Booking: <br />
    <img width="185" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/ed7b9184-4575-462a-a510-e372fd383a1c">
    
-   Facility:
+   Facility: <br />
    <img width="467" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/11f62b40-930b-47bc-9a91-35660b8c0777">
    
-   Facility Book:
+   Facility Book: <br />
    <img width="194" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/62d3c525-7c45-4acc-a2af-765656b2c400">
    
-   Inventory:
+   Inventory: <br />
    <img width="263" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/09dc58c2-2556-47ef-89b9-3b3f7ba65e88">
    
-   Rating:
+   Rating: <br />
    <img width="245" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/c2aece9d-a4bb-4932-848b-3faddc1c90ce">
 
-   Room:
+   Room: <br />
    <img width="850" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/fc7e7f3e-4194-49ba-beae-2374acd392d2">
    
-   User:
+   User: <br />
    <img width="557" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/2547bd0e-e074-4ec7-9510-56c497c6a669">
    
 3. 
