@@ -29,7 +29,7 @@ Hotel Admins:
    
    With each table containing the following columns:
    
-   Amenities Req: <br \>
+   Amenities Req: <br />
    <img width="156" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/6ef2026b-76c1-4bd8-be00-a45a07c9605e">
    
    Booking: <br />
