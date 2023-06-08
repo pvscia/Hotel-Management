@@ -76,8 +76,8 @@ Say that I am a guest checked-in at a hotel and would like an extra bed in my ro
    <img width="748" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/34461b9c-3ac7-4db3-a1f7-b80b22218c78">
 
    Once they press submit, a prompt will show that their order has been placed, and the hotel admins will be notified in return, as the database has been updated. <br \>
-   <img width="746" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/087d1d85-f92e-42c3-80d4-9aea0bcda380"> <br \>
-   <img width="158" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/659b4a7a-2472-43e3-bfb3-3e54711fdd27"> <br \>
+   <img width="746" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/087d1d85-f92e-42c3-80d4-9aea0bcda380"> <br />
+   <img width="158" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/659b4a7a-2472-43e3-bfb3-3e54711fdd27"> <br />
     
    And as simple as that, an extra bed order has been placed.
     
