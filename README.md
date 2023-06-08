@@ -28,7 +28,8 @@ Hotel Admins:
    <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/3044f97d-69af-40da-8670-48a2976fd230">
    
    With each table containing the following columns:
-   Booking:
+   
+   Booking: <br />
    <img width="185" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/ed7b9184-4575-462a-a510-e372fd383a1c">
    
    Facility:
