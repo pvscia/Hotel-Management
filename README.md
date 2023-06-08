@@ -107,7 +107,7 @@ Example 2: Say that I am a hotel admin that wants to check up on the hotels' ame
    Since in this case the admin would like to check on the amenities, they would go to the Amenities page by clicking on it, redirecting them to this page: <br /> 
    
    
-   <img width="749" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/521dff36-2385-474e-9e1f-dd1c4b96bc0e">
+   <img width="745" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/c8f6d09c-7563-455b-837d-3ece5fbcd796">
     
     
    From here the admin can check on the current stock that each available amenity has. However, notice that on the bottom of the screen, a request for an extra bed is shown. This is because of the guests' request that we placed before.
