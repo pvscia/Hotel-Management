@@ -50,10 +50,9 @@ Hotel Admins:
    User: <br />
    <img width="557" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/2547bd0e-e074-4ec7-9510-56c497c6a669">
    
-3. 
-
-
-
-4. 
+   The information shown are examples, feel free to edit the data to your liking.
+   
+3. Once the dataset is properly set up, import the JavaFX library, JFXtras library and the MySQL Connector for JavaFX into the project build path in your prefered IDE.
+4. Run the Main.Java file and enjoy!
 
 
