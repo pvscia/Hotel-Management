@@ -93,19 +93,27 @@ Say that I am a guest checked-in at a hotel and would like an extra bed in my ro
 Example 2: Say that I am a hotel admin that wants to check up on the hotels' amenities stock and at the same time, check if any of them are being ordered. Instead of having to confirm with the hotel receptionist every now and then, the application can help them do just that. Here's how it works:
 
    Start up the application and login with the registered credentials. In this case, the credentials entered are that of an admin. <br />
+   
+   
    <img width="749" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/61981719-7085-4d2d-9c12-05dc9a7ec1fc">
    
    
    If the credentials are correct, the app will direct the admin to the admin home page like so: <br /> 
+   
+   
    <img width="749" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/edcd41d9-76cd-4d26-b427-0fbfc14e5de1">
 
    
    Since in this case the admin would like to check on the amenities, they would go to the Amenities page by clicking on it, redirecting them to this page: <br /> 
+   
+   
    <img width="749" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/521dff36-2385-474e-9e1f-dd1c4b96bc0e">
     
     
    From here the admin can check on the current stock that each available amenity has. However, notice that on the bottom of the screen, a request for an extra bed is shown. This is because of the guests' request that we placed before.
    The admin can click deliver from the page and notify the room service servers of this request like so: <br />
+   
+   
    <img width="750" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/212c27f0-8154-44cd-9862-f114761eb53a">
 
  
