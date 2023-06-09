@@ -117,7 +117,7 @@ Example 2: Say that I am a hotel admin that wants to check up on the hotels' ame
    <img width="750" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/212c27f0-8154-44cd-9862-f114761eb53a">
 
  
-   And with that, the chance of a forgotten request placed by a guest has been further reduced.
+   And with that, the chance of a forgotten request placed by a guest has been further reduced
 
 
 
