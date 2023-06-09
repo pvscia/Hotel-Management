@@ -64,28 +64,28 @@ Example 1:
 Say that I am a guest checked-in at a hotel and would like an extra bed in my room. Instead of having to call the receptionist and hope they remember your request, I could utilize this application and do just that without worrying. Here's how it works:
 
    Start up the application and login with the registered credentials. In this case, the credentials entered are that of a guest. <br />
-   <img width="752" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/7a15af40-d8be-48cb-af70-4f3bff7ace6d">
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/7a15af40-d8be-48cb-af70-4f3bff7ace6d">
    
    If the credentials are correct, the app will direct the guest to the guest home page like so: <br />
    
    
-   <img width="751" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/b40dd527-64d4-4337-b327-eefb24054678">
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/b40dd527-64d4-4337-b327-eefb24054678">
 
    Since in this case the guest would like to order additional amenities, they would go to the Order Amenities page by clicking on it, redirecting them to this page: <br />
    
    
-   <img width="747" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/e878fe0f-6d13-4e90-8a4d-0302b361824c">
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/e878fe0f-6d13-4e90-8a4d-0302b361824c">
     
    Here, guests can choose from the available amenities and their quantity. Since the guest would like to order one additional extra bed, they would select Extra Bed from the drop down menu of available amenities and set the quantity to    1 like so: <br />
    
    
-   <img width="748" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/34461b9c-3ac7-4db3-a1f7-b80b22218c78">
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/34461b9c-3ac7-4db3-a1f7-b80b22218c78">
 
    Once they press submit, a prompt will show that their order has been placed, and the hotel admins will be notified in return, as the database has been updated. <br />
    
    
-   <img width="746" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/087d1d85-f92e-42c3-80d4-9aea0bcda380"> <br />
-   <img width="158" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/659b4a7a-2472-43e3-bfb3-3e54711fdd27"> <br />
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/087d1d85-f92e-42c3-80d4-9aea0bcda380"> <br />
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/659b4a7a-2472-43e3-bfb3-3e54711fdd27"> <br />
     
    And as simple as that, an extra bed order has been placed.
     
@@ -95,26 +95,26 @@ Example 2: Say that I am a hotel admin that wants to check up on the hotels' ame
    Start up the application and login with the registered credentials. In this case, the credentials entered are that of an admin. <br />
    
    
-   <img width="749" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/61981719-7085-4d2d-9c12-05dc9a7ec1fc">
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/61981719-7085-4d2d-9c12-05dc9a7ec1fc">
    
    
    If the credentials are correct, the app will direct the admin to the admin home page like so: <br /> 
    
    
-   <img width="749" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/edcd41d9-76cd-4d26-b427-0fbfc14e5de1">
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/edcd41d9-76cd-4d26-b427-0fbfc14e5de1">
 
    
    Since in this case the admin would like to check on the amenities, they would go to the Amenities page by clicking on it, redirecting them to this page: <br /> 
    
    
-   <img width="745" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/c8f6d09c-7563-455b-837d-3ece5fbcd796">
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/c8f6d09c-7563-455b-837d-3ece5fbcd796">
     
     
    From here the admin can check on the current stock that each available amenity has. However, notice that on the bottom of the screen, a request for an extra bed is shown. This is because of the guests' request that we placed before.
    The admin can click deliver from the page and notify the room service servers of this request like so: <br />
    
    
-   <img width="750" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/212c27f0-8154-44cd-9862-f114761eb53a">
+   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/212c27f0-8154-44cd-9862-f114761eb53a">
 
  
    And with that, the chance of a forgotten request placed by a guest has been further reduced.
