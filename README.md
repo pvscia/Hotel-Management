@@ -25,7 +25,7 @@ Hotel Admins:
 1. Clone this project
 2. Create a MySQL database named hotel_management using the XAMPP Control Panel following the format of the following database:
    Tables: <br />
-   <img width="739" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/3044f97d-69af-40da-8670-48a2976fd230">
+   <img width="739" alt="image" src="./assets/tables.png">
    
    With each table containing the following columns:
    
