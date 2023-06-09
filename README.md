@@ -68,8 +68,8 @@ Say that I am a guest checked-in at a hotel and would like an extra bed in my ro
    <img width="739" alt="image" src="./assets/user_RegisterScene.png">
    
    Credentials for testing <br />
-   Email: patrice@gmail.com<br />
-   Password : user1234<br />
+   Email: patrice@gmail.com <br />
+   Password : user1234 <br />
    <img width="739" alt="image" src="./assets/user_LoginScene.png">
    
    If the credentials are correct and user have booked a room, the app will direct the guest to the guest home page like so: <br />
@@ -101,8 +101,8 @@ Example 2: Say that I am a hotel admin that wants to check up on the hotels' ame
    Start up the application and login with the registered credentials. In this case, the credentials entered are that of an admin. <br />
    
    Credentials <br/>
-   Email : admin@gmail.com
-   Password : Admin1234
+   Email : admin@gmail.com <br/>
+   Password : Admin1234 <br/>
    <img width="739" alt="image" src="./assets/admin_LoginScene.png">
    
    
