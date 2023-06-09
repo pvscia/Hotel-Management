@@ -30,28 +30,28 @@ Hotel Admins:
    With each table containing the following columns:
    
    Amenities Req: <br />
-   <img width="156" alt="image" src="./assets/amenities.png">
+   <img width="739" alt="image" src="./assets/amenities_req.png">
    
    Booking: <br />
-   <img width="185" alt="image" src="./assets/booking.png">
+   <img width="739" alt="image" src="./assets/booking.png">
    
    Facility: <br />
-   <img width="467" alt="image" src="./assets/facility.png">
+   <img width="739" alt="image" src="./assets/facility.png">
    
    Facility Book: <br />
-   <img width="194" alt="image" src="./assets/facility_book.png">
+   <img width="739" alt="image" src="./assets/facility_book.png">
    
    Inventory: <br />
-   <img width="263" alt="image" src="./assets/inventory.png">
+   <img width="739" alt="image" src="./assets/inventory.png">
    
    Rating: <br />
-   <img width="245" alt="image" src="./assets/rating.png">
+   <img width="739" alt="image" src="./assets/rating.png">
 
    Room: <br />
-   <img width="850" alt="image" src="./assets/room.png">
+   <img width="739" alt="image" src="./assets/room.png">
    
    User: <br />
-   <img width="557" alt="image" src="./assets/user.png">
+   <img width="739" alt="image" src="./assets/user.png">
    
    The information shown are examples, feel free to edit the data to your liking.
    
