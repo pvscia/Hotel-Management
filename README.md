@@ -30,28 +30,28 @@ Hotel Admins:
    With each table containing the following columns:
    
    Amenities Req: <br />
-   <img width="156" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/6ef2026b-76c1-4bd8-be00-a45a07c9605e">
+   <img width="156" alt="image" src="./assets/amenities.png">
    
    Booking: <br />
-   <img width="185" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/ed7b9184-4575-462a-a510-e372fd383a1c">
+   <img width="185" alt="image" src="./assets/booking.png">
    
    Facility: <br />
-   <img width="467" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/11f62b40-930b-47bc-9a91-35660b8c0777">
+   <img width="467" alt="image" src="./assets/facility.png">
    
    Facility Book: <br />
-   <img width="194" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/62d3c525-7c45-4acc-a2af-765656b2c400">
+   <img width="194" alt="image" src="./assets/facility_book.png">
    
    Inventory: <br />
-   <img width="263" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/09dc58c2-2556-47ef-89b9-3b3f7ba65e88">
+   <img width="263" alt="image" src="./assets/inventory.png">
    
    Rating: <br />
-   <img width="245" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/c2aece9d-a4bb-4932-848b-3faddc1c90ce">
+   <img width="245" alt="image" src="./assets/rating.png">
 
    Room: <br />
-   <img width="850" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/fc7e7f3e-4194-49ba-beae-2374acd392d2">
+   <img width="850" alt="image" src="./assets/room.png">
    
    User: <br />
-   <img width="557" alt="image" src="https://github.com/pvscia/Hotel-Management/assets/126550095/2547bd0e-e074-4ec7-9510-56c497c6a669">
+   <img width="557" alt="image" src="./assets/user.png">
    
    The information shown are examples, feel free to edit the data to your liking.
    
