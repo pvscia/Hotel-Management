@@ -65,6 +65,8 @@ Say that I am a guest checked-in at a hotel and would like an extra bed in my ro
 
    Start up the application and login with the registered credentials. In this case, the credentials entered are that of a guest. <br />
    If guest never visit the hotel or never have an account then they can go to register page : <br/>
+   
+   
    <img width="739" alt="image" src="./assets/user_RegisterScene.png">
    
    Credentials for testing <br />
